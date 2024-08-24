@@ -1,0 +1,251 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "fundsAdmin",
+						"type": "address"
+					}
+				],
+				"name": "NewFundsAdmin",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ETH_MOCK_ADDRESS",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "REVISION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getFundsAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"author": "BGD Labs*",
+			"details": "Done abstract to add an `initialize()` function on the child, with `initializer` modifier",
+			"events": {
+				"NewFundsAdmin(address)": {
+					"params": {
+						"fundsAdmin": "The new funds admin*"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"approve(address,address,uint256)": {
+					"details": "Function for the funds admin to give ERC20 allowance to other parties",
+					"params": {
+						"amount": "Allowance to approve*",
+						"recipient": "Allowance's recipient",
+						"token": "The address of the token to give allowance from"
+					}
+				},
+				"getFundsAdmin()": {
+					"returns": {
+						"_0": "address The address of the funds admin*"
+					}
+				},
+				"transfer(address,address,uint256)": {
+					"params": {
+						"amount": "Amount to transfer*",
+						"recipient": "Transfer's recipient",
+						"token": "The address of the token to transfer"
+					}
+				}
+			},
+			"stateVariables": {
+				"ETH_MOCK_ADDRESS": {
+					"return": "address The address*",
+					"returns": {
+						"_0": "address The address*"
+					}
+				}
+			},
+			"title": "AdminControlledEcosystemReserve",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"NewFundsAdmin(address)": {
+					"notice": "Emitted when the funds admin changes"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"ETH_MOCK_ADDRESS()": {
+					"notice": "Returns the mock ETH reference address"
+				},
+				"getFundsAdmin()": {
+					"notice": "Return the funds admin, only entity to be able to interact with this contract (controller of reserve)"
+				},
+				"transfer(address,address,uint256)": {
+					"notice": "Function for the funds admin to transfer ERC20 tokens to other parties"
+				}
+			},
+			"notice": "Stores ERC20 tokens, and allows to dispose of them via approval or transfer dynamics Adapted to be an implementation of a transparent proxy",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/treasury/AdminControlledEcosystemReserve.sol": "AdminControlledEcosystemReserve"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0xf57d62241e553696a1324d225663ba2e1a51db0a51ca236d0c1b009d89b6284c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d327db93b636790909aa137124f30a856ac1631cb79c476aa188f9627fda8d03",
+				"dweb:/ipfs/QmaxpmEoBFioeNYmpxJemyZ7aYF2nX1NKW1XDqREm7i6es"
+			]
+		},
+		"contracts/treasury/AdminControlledEcosystemReserve.sol": {
+			"keccak256": "0x762e73291586d0dc792962ba6254fc61e6b645561da7b9a384860c7c9a4de12a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://568707fe0efabcfc64c421f13cc64bb98b70c6238d0e6a622691d9a7a2764391",
+				"dweb:/ipfs/QmPrkZnubi4YAzzXHJ5Bw7njDtCJnojAiiihQshKqWeat1"
+			]
+		},
+		"contracts/treasury/interfaces/IAdminControlledEcosystemReserve.sol": {
+			"keccak256": "0x98018afde54c4d8ffe2213f9b67dc91cec8d8a9a6962303c222e7fbcbf099583",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d914c234ae88695b09b855e56219d599400f53031d387812d5ce6c1a97620e4a",
+				"dweb:/ipfs/QmewaB3vTNLgDq1h4qQjqdi7f2NwD8CadS1aBjVNnoYQZD"
+			]
+		},
+		"contracts/treasury/libs/Address.sol": {
+			"keccak256": "0xb2d70ed96d128c50245fe45acad4a21a8c7616d3ab0d7d81da6f6fddcba9336f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://028ec219854fc4c3c47d4099c7f71f21f2f2c1664b8c1f23afffb8121bc5a7c7",
+				"dweb:/ipfs/QmXwZjJhLWAFDVLv6PnMhFiWazRFfyeeix58d4NpgjZK2U"
+			]
+		},
+		"contracts/treasury/libs/ReentrancyGuard.sol": {
+			"keccak256": "0xb3fe85f81b73c576b4bcde7ad54f53d7f9c1b552d2c227581b343f1dad17f522",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://875557006dd1f7926cc8d7c925ff048fe3f1499b6a8bfb69850f000fb350fad8",
+				"dweb:/ipfs/QmUhkkVs3ATNnP4RpfSas9PizztHQUchCTyrB6QXLCLcjn"
+			]
+		},
+		"contracts/treasury/libs/SafeERC20.sol": {
+			"keccak256": "0x0ba690dc0a1acab430c16306271ca087920108d2a59197673157143881e24188",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6c45c3a123d36b71e74f9ed6d0e61b3b6d447c964c465717f4ee24718f5e6b18",
+				"dweb:/ipfs/QmabJP3vdSYJuoEQYMziJKWyawUFsszFnvq3Y2R9JD3gsX"
+			]
+		},
+		"contracts/treasury/libs/VersionedInitializable.sol": {
+			"keccak256": "0x2a309d06d4ecbca926f68445dd5aeea59d43cb4c46ee194efcf2f63cf3e4ea58",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://437357f51a0a5bf7ea60c3e9f3d9faa26785551b490394eb1a735115afae509f",
+				"dweb:/ipfs/QmcWtbYZKDELmoZiHMGrQ1K8en8BGstLioBR921JYGje5y"
+			]
+		}
+	},
+	"version": 1
+}

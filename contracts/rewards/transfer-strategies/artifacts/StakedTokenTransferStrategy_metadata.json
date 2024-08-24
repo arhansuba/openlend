@@ -1,0 +1,313 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "incentivesController",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "rewardsAdmin",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IStakedToken",
+						"name": "stakeToken",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "EmergencyWithdrawal",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "dropApproval",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "emergencyWithdrawal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getIncentivesController",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRewardsAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getStakeContract",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getUnderlyingToken",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "performTransfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renewApproval",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave*",
+			"kind": "dev",
+			"methods": {
+				"dropApproval()": {
+					"details": "Drop approval of AAVE to the Staked Aave contract in case of emergency."
+				},
+				"emergencyWithdrawal(address,address,uint256)": {
+					"details": "Perform an emergency token withdrawal only callable by the Rewards admin",
+					"params": {
+						"amount": "Amount of the withdrawal",
+						"to": "Address of the recipient of the withdrawal",
+						"token": "Address of the token to withdraw funds from this contract"
+					}
+				},
+				"getIncentivesController()": {
+					"returns": {
+						"_0": "Returns the address of the Incentives Controller"
+					}
+				},
+				"getRewardsAdmin()": {
+					"returns": {
+						"_0": "Returns the address of the Rewards admin"
+					}
+				},
+				"getStakeContract()": {
+					"returns": {
+						"_0": "Staked Token contract address"
+					}
+				},
+				"getUnderlyingToken()": {
+					"returns": {
+						"_0": "Underlying token address from the stake contract"
+					}
+				},
+				"performTransfer(address,address,uint256)": {
+					"details": "Perform custom transfer logic via delegate call from source contract to a TransferStrategy implementation",
+					"params": {
+						"amount": "Amount to transfer to the \"to\" address parameter",
+						"reward": "Address of the reward token",
+						"to": "Account to transfer rewards"
+					},
+					"returns": {
+						"_0": "Returns true bool if transfer logic succeeds"
+					}
+				},
+				"renewApproval()": {
+					"details": "Perform a MAX_UINT approval of AAVE to the Staked Aave contract."
+				}
+			},
+			"title": "StakedTokenTransferStrategy",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Transfer strategy that stakes the rewards into a staking contract and transfers the staking contract token. The underlying token must be transferred to this contract to be able to stake it on demand.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/rewards/transfer-strategies/StakedTokenTransferStrategy.sol": "StakedTokenTransferStrategy"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@aave/core-v3/contracts/dependencies/gnosis/contracts/GPv2SafeERC20.sol": {
+			"keccak256": "0xb18337187a2a6c4e64c61f8e4e06f0e932a69bb8f33688943bf50d7f4198e44b",
+			"license": "LGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://38c0769720d226d41fb5a0f504a0b9434ca266acb15d1de9bbc08f1a5c8a7bbc",
+				"dweb:/ipfs/QmeskcXDL7cbMXbjEdAdbUamKmjqYKBwRfheFZmm9mpBKJ"
+			]
+		},
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0xf57d62241e553696a1324d225663ba2e1a51db0a51ca236d0c1b009d89b6284c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d327db93b636790909aa137124f30a856ac1631cb79c476aa188f9627fda8d03",
+				"dweb:/ipfs/QmaxpmEoBFioeNYmpxJemyZ7aYF2nX1NKW1XDqREm7i6es"
+			]
+		},
+		"contracts/rewards/interfaces/IStakedToken.sol": {
+			"keccak256": "0x50e72d578c4c7553b0b836767b1c1cf861daaaccf16f9e56a31694d531015267",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://dabdc86adab76c0d742889316b14a8ebdcb04ed862043b03d755d5d15992ba4b",
+				"dweb:/ipfs/QmQjfx7aoUr5C7yRZpaRMV9JyLNGegg4K62jjCkrDLLNkb"
+			]
+		},
+		"contracts/rewards/interfaces/IStakedTokenTransferStrategy.sol": {
+			"keccak256": "0x777599452d5bc188f286a57f74aa0269da91c2eb9ca033a6a3d610b4106ffd44",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://7ba6cba93895e9d2e407ac0f51de9fc31a177dd486202542faf0057c91738a03",
+				"dweb:/ipfs/Qmb95T6pMFwKErU1GwKKUpWtWnqUQjvrw1jwrqDL8fepU2"
+			]
+		},
+		"contracts/rewards/interfaces/ITransferStrategyBase.sol": {
+			"keccak256": "0x06217cc5297b238a5a11f666de608edb4f113593ad8be24db6eefa97e6e6346d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d80b6f9a5fdfe18e9e1b7b96fd795bb070cd4228e8590d9e7692b87972ab669b",
+				"dweb:/ipfs/QmQM9MzVkfEjFznBa5p6vvbvmUpnntPSnTfwsa9fQwsTKc"
+			]
+		},
+		"contracts/rewards/transfer-strategies/StakedTokenTransferStrategy.sol": {
+			"keccak256": "0xe566ab3594e6342bafa8333fb37c6896b45d98391ff9dab1ca2b59c8efd4f0ad",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://48c5c092f3986a0a1acd05f98f441b1d683722d1a80d30bdf1f05b9d5ea19fbb",
+				"dweb:/ipfs/Qma8ws9Got8KvQZyP8mpV669jCobENJKjaaHyW7TAEC8Zo"
+			]
+		},
+		"contracts/rewards/transfer-strategies/TransferStrategyBase.sol": {
+			"keccak256": "0x15840e56da6e30e9e6b4e50e6dbf2873343627437c1b123fbe377e968892e1af",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://8749bfc8de35fee3977374f0fbd3238df5c1a0e31e57230219ae5b005b8a4587",
+				"dweb:/ipfs/QmehKLX9iiZ84zy4pboaD551vqkoaUyYBEiZ4fxHa3h6Xx"
+			]
+		}
+	},
+	"version": 1
+}

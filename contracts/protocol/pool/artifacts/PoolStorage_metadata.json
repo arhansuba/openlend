@@ -1,0 +1,201 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"author": "Aave",
+			"details": "It defines the storage layout of the Pool contract.",
+			"kind": "dev",
+			"methods": {},
+			"title": "PoolStorage",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Contract used as storage of the Pool contract.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/protocol/pool/PoolStorage.sol": "PoolStorage"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/dependencies/gnosis/contracts/GPv2SafeERC20.sol": {
+			"keccak256": "0xd47a42766ec7a2d6413451a0b6fdb2feabacb0fe38f1b0a6bdb1b968d650266a",
+			"license": "LGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://5fd3387511aa51681ee7b7c99a6d93c1fe3a6bdfe0bf818c7f4efcdc8894f325",
+				"dweb:/ipfs/QmQqB8uNCqL7Q8BfWz2GMXKDMmMZnakgG54Zfb1fDiRogA"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0x07fe55e38757b195c884a8ede60deb8a1f6a85cc607e4e112a8c0004a9ebd448",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://dac71166c7a8cd1eef36ef868a41fbe8227c0de4fad7052b28657e4176af741f",
+				"dweb:/ipfs/QmSPRAVhBexaW12JXoXoz94apX25fSqxzgS2a1AYJPKamv"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/SafeCast.sol": {
+			"keccak256": "0x9dc85595ff727e421497d6507db33360a47adf75fb17eee51680c4e60e4b0447",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d9d36860ed2d82fad841166231e24a2a67f7c82177b91bc8c75e36f801f527bb",
+				"dweb:/ipfs/QmSZhSNiR3kp5p8Eix4tMdw8sVQkGQJan7PtBhpCSLryex"
+			]
+		},
+		"contracts/interfaces/IAaveIncentivesController.sol": {
+			"keccak256": "0x1fa5b0b5e06c28c3e0e5c4052bd4448abb905cdfd2496a347d539093c5337ebf",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://561f0f9f057e8f800ed5730ff290363a343811ebab34511db727d2b91352ec78",
+				"dweb:/ipfs/QmYyhpvB5MDogyyUgy7ndrqkHQFtF5q5ZWtvranB6Tqc2q"
+			]
+		},
+		"contracts/interfaces/IInitializableDebtToken.sol": {
+			"keccak256": "0x78eb0003df3280b92abaa1773133f78cd8b8d634a9f72cedd60f5287e8dd60fc",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://5fb4811db7379f814cb906a7c204e023c07fd2aae4f4f45240b473dd9034f044",
+				"dweb:/ipfs/QmYFqAxCc5TQRt33MRYWuMYiEoNJnUDCkTC3dqRckjj9sQ"
+			]
+		},
+		"contracts/interfaces/IPool.sol": {
+			"keccak256": "0x91fc8cafd9f6fda5046620662d57c5ab5f724375be08903114576216a4980629",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://87c472da79a61750b3cd010532de6092c6be145591f27ca5436850e9985cf3ae",
+				"dweb:/ipfs/QmSVysBKZUepgucokF4Av7i3PJQSj2RSpXKKfYaAcYkR6d"
+			]
+		},
+		"contracts/interfaces/IPoolAddressesProvider.sol": {
+			"keccak256": "0xf37b9fdb389d45783acfc16664c06f28af953d4a409d1059bdf10b917d41fd4a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb3c42a324ea0adf0095b1e3ea05df7edd70816cfd472e79a29a4fd5b196fa7b",
+				"dweb:/ipfs/QmcSYcH5NZc96EHqAp7sY5Gxvo1229gLnihyBfqme5EdGj"
+			]
+		},
+		"contracts/interfaces/IReserveInterestRateStrategy.sol": {
+			"keccak256": "0x70d69671d225d8aecd556386728c2e172ef44ae24e2b718f333880f783983c7d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d1fcdbc5b88b5dae52d4e15199c8e9265287b31606f30c0a490757b79135d1c2",
+				"dweb:/ipfs/QmegRZoeNysazPJTyrcyzvbszgURJ7QGkb5DJ5hU75Sq4x"
+			]
+		},
+		"contracts/interfaces/IScaledBalanceToken.sol": {
+			"keccak256": "0xf811b6f5f28cb114bf0157f5c29e4f3b6916cd07a2d199e41a6e095bf10e9274",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://dfd126d6e02ccce04f58919686589c05eccf242d5bf4c270a612e7c46dc645c1",
+				"dweb:/ipfs/QmTSk6ojkAxRPVwUBKMWhtFAaJS1jLt48sK8dySxXFNxJW"
+			]
+		},
+		"contracts/interfaces/IStableDebtToken.sol": {
+			"keccak256": "0xbf28ffd735f8544c7911fc77537e003f4bb29e39ca26b644805e3f02411b390a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://cf0c215888a43c6850a73d513084be83e3eb31e22176ca502b895759d63eaaf1",
+				"dweb:/ipfs/QmZRYRjYhRdKYDR8r15jo8E5Km3kPxabFF7Ln2aS2Md1xY"
+			]
+		},
+		"contracts/interfaces/IVariableDebtToken.sol": {
+			"keccak256": "0xe8dc967f087955ad66fc6ea21bedff59e2ba5a39314a2c81f6428a4703a46984",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://c0d00437213235446a0037370166fb5ef6b864bfc5cd9809c498be3051e220d5",
+				"dweb:/ipfs/QmcT8UA4qm1zoU8bLkg583zfvmTnMoLqMdoyvmjnGPD2aU"
+			]
+		},
+		"contracts/protocol/libraries/configuration/ReserveConfiguration.sol": {
+			"keccak256": "0x011e03e774245a14152f29561ccc836317720a2b078b0fb6694f9c070d2a9e32",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://b5327be938d893acbdeb135b4c347d1c9b06bf70fdc16e7c2398652fb61c4ac4",
+				"dweb:/ipfs/QmaknTkQZXy46kbqv4JfV6VPssJ9ZPsja6irtJJLjBsRYh"
+			]
+		},
+		"contracts/protocol/libraries/configuration/UserConfiguration.sol": {
+			"keccak256": "0xcc4d1d3059f6d99f1796b08f5b14cc03b97e770fd222d4e4cf53035bde931722",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://0c42af9783f49d8e13982b403b76c65e7ffa39ad910f3ee1d138add2fea601ee",
+				"dweb:/ipfs/QmTQm1vk8AQT6x2m4rzZA1b8WF5KtnQoHyWBdrXqteaSTV"
+			]
+		},
+		"contracts/protocol/libraries/helpers/Errors.sol": {
+			"keccak256": "0xb6227b2cd999d01882dcfa20f489bf7b95d7428120253da7833c3361d2c8865d",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://e41c6e7c7ce1e5454602a590b07235e58684f15eef8fb80deb3b1017cff52516",
+				"dweb:/ipfs/QmYkjQHEqKTTZA9WpoXhevUtugDnLqxDdatkmkFxbihT5Z"
+			]
+		},
+		"contracts/protocol/libraries/logic/ReserveLogic.sol": {
+			"keccak256": "0x455eb98dc54318a3adca3976a32ee32daa6df33bbf43c54390bf09f434c894b1",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://162b8131ea58069123b924134979105852a40e7b9b15f54d6e4765394f1b7d6d",
+				"dweb:/ipfs/QmTFdSw1m3njrCAzrwCNMbMfPVagjvgVXH1BbN6kjnBEJm"
+			]
+		},
+		"contracts/protocol/libraries/math/MathUtils.sol": {
+			"keccak256": "0x10306b802622f0e02ce1d7d3bdb113b61babc601a4d80ca26ef9a5a30a897d47",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://a37fab09bb175d5899bdaf7f32a13f155243303f9ab779454329b0fde3c5e0b6",
+				"dweb:/ipfs/QmRsReyjpiPoNk1Uivb2g1A5ZafmTXAf7KetNhibjuGXvd"
+			]
+		},
+		"contracts/protocol/libraries/math/PercentageMath.sol": {
+			"keccak256": "0x944f4990151b34bc0b5043712922e28adc10626e51e3d02e9569609f1caa5b93",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://7c4e655a3fa65ddc390c5a65def26fa44be869c3133ed23f26c7a04f804c86e2",
+				"dweb:/ipfs/QmfNjaMmqW2Zas5SGKku9DeRCLK3FrKfFFkhzPgNUwzySQ"
+			]
+		},
+		"contracts/protocol/libraries/math/WadRayMath.sol": {
+			"keccak256": "0x1fefec0fa31e0b2960c90dd1a637b69e5748fee962d3b5e6f2f6b0b5965a67b1",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://b1e926d9b5a4bc735ab024f78bdd25138e209977d28a49587f496cabfae077e4",
+				"dweb:/ipfs/QmUEYMevf8L7dcFF6CrLc5YKDvDVHdv5fwnXPHiRwbQEBX"
+			]
+		},
+		"contracts/protocol/libraries/types/DataTypes.sol": {
+			"keccak256": "0xf484b9e835d41d75d2ad32ea241e1cc859f278df49a8c4ceb2c0299036e577be",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://eafa12cff7ec168fd0e868ffee3931cc128c57bab003efbdb30e67e73d477fe3",
+				"dweb:/ipfs/QmU6nessQ7F1JLRbeYzZzgkh4E5mRdVh3YqLNN5nxGuUvb"
+			]
+		},
+		"contracts/protocol/pool/PoolStorage.sol": {
+			"keccak256": "0xd7469d74fe1cfc9ee3570c5d02079376d4f58811feff8c38a6a68286e49231b5",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://444deafd25f8a85dd7520add9560448a95168fdd8287162829aa140441ebbada",
+				"dweb:/ipfs/QmXt4izPZ9pz9LvEgFLpZv5ex1gK9hddAZwcxAVpbnq4tw"
+			]
+		}
+	},
+	"version": 1
+}

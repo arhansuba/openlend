@@ -1,0 +1,119 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "DOMAIN_SEPARATOR",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "EIP712_REVISION",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "nonces",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave",
+			"kind": "dev",
+			"methods": {
+				"DOMAIN_SEPARATOR()": {
+					"details": "Return cached value if chainId matches cache, otherwise recomputes separator",
+					"returns": {
+						"_0": "The domain separator of the token at current chain"
+					}
+				},
+				"constructor": {
+					"details": "Constructor."
+				},
+				"nonces(address)": {
+					"params": {
+						"owner": "The address for which the nonce is being returned"
+					},
+					"returns": {
+						"_0": "The nonce value for the input address`"
+					}
+				}
+			},
+			"title": "EIP712Base",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"DOMAIN_SEPARATOR()": {
+					"notice": "Get the domain separator for the token"
+				},
+				"nonces(address)": {
+					"notice": "Returns the nonce value for address specified as parameter"
+				}
+			},
+			"notice": "Base contract implementation of EIP712.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/protocol/tokenization/base/EIP712Base.sol": "EIP712Base"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/protocol/tokenization/base/EIP712Base.sol": {
+			"keccak256": "0x1d367909141cf1c6f103d69837ebd94013cd0f34a206cdb7692d4da3cdce60a3",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://13338a975543726810b25a510971a5d6c033f8a78703443c139e6b0d6d2c70a8",
+				"dweb:/ipfs/QmREx1MXHyDh3jE27AN7uCTRzCEDGGSNMgfWPWnWLVU9SJ"
+			]
+		}
+	},
+	"version": 1
+}

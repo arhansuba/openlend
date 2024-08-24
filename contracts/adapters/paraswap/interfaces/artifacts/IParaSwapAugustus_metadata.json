@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getTokenTransferProxy",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/adapters/paraswap/interfaces/IParaSwapAugustus.sol": "IParaSwapAugustus"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/adapters/paraswap/interfaces/IParaSwapAugustus.sol": {
+			"keccak256": "0xebfd529a60d9f067139fe0997a557a13cc0c1360b39807dd6186c4a1c8c4d81e",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb07e3b23773e3baf87e282eed3c625d7da9d9eb4cb3a34bd8c96cc044c99e11",
+				"dweb:/ipfs/QmQcunUbKrZwMNNnPhDwUzrdUNFEvU9gem31DjAp65uD5q"
+			]
+		}
+	},
+	"version": 1
+}

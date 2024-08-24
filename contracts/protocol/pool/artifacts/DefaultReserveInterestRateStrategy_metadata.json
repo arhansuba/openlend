@@ -1,0 +1,563 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IPoolAddressesProvider",
+						"name": "provider",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "optimalUsageRatio",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "baseVariableBorrowRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "variableRateSlope1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "variableRateSlope2",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stableRateSlope1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stableRateSlope2",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "baseStableRateOffset",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stableRateExcessOffset",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "optimalStableToTotalDebtRatio",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "ADDRESSES_PROVIDER",
+				"outputs": [
+					{
+						"internalType": "contract IPoolAddressesProvider",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_EXCESS_USAGE_RATIO",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "OPTIMAL_USAGE_RATIO",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "unbacked",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "liquidityAdded",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "liquidityTaken",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalStableDebt",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalVariableDebt",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "averageStableBorrowRate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "reserveFactor",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "reserve",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "aToken",
+								"type": "address"
+							}
+						],
+						"internalType": "struct DataTypes.CalculateInterestRatesParams",
+						"name": "params",
+						"type": "tuple"
+					}
+				],
+				"name": "calculateInterestRates",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBaseStableBorrowRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBaseVariableBorrowRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMaxVariableBorrowRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getStableRateExcessOffset",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getStableRateSlope1",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getStableRateSlope2",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVariableRateSlope1",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVariableRateSlope2",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave",
+			"details": "The model of interest rate is based on 2 slopes, one before the `OPTIMAL_USAGE_RATIO` point of usage and another from that one to 100%. - An instance of this same contract, can't be used across different Aave markets, due to the caching   of the PoolAddressesProvider",
+			"kind": "dev",
+			"methods": {
+				"calculateInterestRates((uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address))": {
+					"params": {
+						"params": "The parameters needed to calculate interest rates"
+					},
+					"returns": {
+						"_0": "liquidityRate The liquidity rate expressed in rays",
+						"_1": "stableBorrowRate The stable borrow rate expressed in rays",
+						"_2": "variableBorrowRate The variable borrow rate expressed in rays"
+					}
+				},
+				"constructor": {
+					"details": "Constructor.",
+					"params": {
+						"baseStableRateOffset": "The premium on top of variable rate for base stable borrowing rate",
+						"baseVariableBorrowRate": "The base variable borrow rate",
+						"optimalStableToTotalDebtRatio": "The optimal stable debt to total debt ratio of the reserve",
+						"optimalUsageRatio": "The optimal usage ratio",
+						"provider": "The address of the PoolAddressesProvider contract",
+						"stableRateExcessOffset": "The premium on top of stable rate when there stable debt surpass the threshold",
+						"stableRateSlope1": "The stable rate slope below optimal usage ratio",
+						"stableRateSlope2": "The stable rate slope above optimal usage ratio",
+						"variableRateSlope1": "The variable rate slope below optimal usage ratio",
+						"variableRateSlope2": "The variable rate slope above optimal usage ratio"
+					}
+				},
+				"getBaseStableBorrowRate()": {
+					"returns": {
+						"_0": "The base stable borrow rate, expressed in ray"
+					}
+				},
+				"getBaseVariableBorrowRate()": {
+					"returns": {
+						"_0": "The base variable borrow rate, expressed in ray"
+					}
+				},
+				"getMaxVariableBorrowRate()": {
+					"returns": {
+						"_0": "The maximum variable borrow rate, expressed in ray"
+					}
+				},
+				"getStableRateExcessOffset()": {
+					"details": "It's an additional premium applied to the stable when stable debt > OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO",
+					"returns": {
+						"_0": "The stable rate excess offset, expressed in ray"
+					}
+				},
+				"getStableRateSlope1()": {
+					"details": "It's the stable rate when usage ratio > 0 and <= OPTIMAL_USAGE_RATIO",
+					"returns": {
+						"_0": "The stable rate slope, expressed in ray"
+					}
+				},
+				"getStableRateSlope2()": {
+					"details": "It's the variable rate when usage ratio > OPTIMAL_USAGE_RATIO",
+					"returns": {
+						"_0": "The stable rate slope, expressed in ray"
+					}
+				},
+				"getVariableRateSlope1()": {
+					"details": "It's the variable rate when usage ratio > 0 and <= OPTIMAL_USAGE_RATIO",
+					"returns": {
+						"_0": "The variable rate slope, expressed in ray"
+					}
+				},
+				"getVariableRateSlope2()": {
+					"details": "It's the variable rate when usage ratio > OPTIMAL_USAGE_RATIO",
+					"returns": {
+						"_0": "The variable rate slope, expressed in ray"
+					}
+				}
+			},
+			"stateVariables": {
+				"ADDRESSES_PROVIDER": {
+					"return": "The address of the PoolAddressesProvider contract",
+					"returns": {
+						"_0": "The address of the PoolAddressesProvider contract"
+					}
+				},
+				"MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO": {
+					"details": "It's always equal to 1-optimal stable to total debt ratio (added as constant for gas optimizations)",
+					"return": "The max excess stable to total debt ratio, expressed in ray.",
+					"returns": {
+						"_0": "The max excess stable to total debt ratio, expressed in ray."
+					}
+				},
+				"MAX_EXCESS_USAGE_RATIO": {
+					"details": "It's always equal to 1-optimal usage ratio (added as constant for gas optimizations)",
+					"return": "The max excess usage ratio, expressed in ray.",
+					"returns": {
+						"_0": "The max excess usage ratio, expressed in ray."
+					}
+				},
+				"OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO": {
+					"return": "The optimal stable to total debt ratio, expressed in ray.",
+					"returns": {
+						"_0": "The optimal stable to total debt ratio, expressed in ray."
+					}
+				},
+				"OPTIMAL_USAGE_RATIO": {
+					"return": "The optimal usage ratio, expressed in ray.",
+					"returns": {
+						"_0": "The optimal usage ratio, expressed in ray."
+					}
+				}
+			},
+			"title": "DefaultReserveInterestRateStrategy contract",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"ADDRESSES_PROVIDER()": {
+					"notice": "Returns the address of the PoolAddressesProvider"
+				},
+				"MAX_EXCESS_STABLE_TO_TOTAL_DEBT_RATIO()": {
+					"notice": "Returns the excess stable debt ratio above the optimal."
+				},
+				"MAX_EXCESS_USAGE_RATIO()": {
+					"notice": "Returns the excess usage ratio above the optimal."
+				},
+				"OPTIMAL_STABLE_TO_TOTAL_DEBT_RATIO()": {
+					"notice": "Returns the optimal stable to total debt ratio of the reserve."
+				},
+				"OPTIMAL_USAGE_RATIO()": {
+					"notice": "Returns the usage ratio at which the pool aims to obtain most competitive borrow rates."
+				},
+				"calculateInterestRates((uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address))": {
+					"notice": "Calculates the interest rates depending on the reserve's state and configurations"
+				},
+				"getBaseStableBorrowRate()": {
+					"notice": "Returns the base stable borrow rate"
+				},
+				"getBaseVariableBorrowRate()": {
+					"notice": "Returns the base variable borrow rate"
+				},
+				"getMaxVariableBorrowRate()": {
+					"notice": "Returns the maximum variable borrow rate"
+				},
+				"getStableRateExcessOffset()": {
+					"notice": "Returns the stable rate excess offset"
+				},
+				"getStableRateSlope1()": {
+					"notice": "Returns the stable rate slope below optimal usage ratio"
+				},
+				"getStableRateSlope2()": {
+					"notice": "Returns the stable rate slope above optimal usage ratio"
+				},
+				"getVariableRateSlope1()": {
+					"notice": "Returns the variable rate slope below optimal usage ratio"
+				},
+				"getVariableRateSlope2()": {
+					"notice": "Returns the variable rate slope above optimal usage ratio"
+				}
+			},
+			"notice": "Implements the calculation of the interest rates depending on the reserve state",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/protocol/pool/DefaultReserveInterestRateStrategy.sol": "DefaultReserveInterestRateStrategy"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0x07fe55e38757b195c884a8ede60deb8a1f6a85cc607e4e112a8c0004a9ebd448",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://dac71166c7a8cd1eef36ef868a41fbe8227c0de4fad7052b28657e4176af741f",
+				"dweb:/ipfs/QmSPRAVhBexaW12JXoXoz94apX25fSqxzgS2a1AYJPKamv"
+			]
+		},
+		"contracts/interfaces/IDefaultInterestRateStrategy.sol": {
+			"keccak256": "0xab65e49afbcf7ed04c5e46dc66380916259a37f65acefdd9e868288f9a50a18b",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://dd37f84d64af2a275da7ee555a19dc5975cf42ff09440314e9214290c305d0a3",
+				"dweb:/ipfs/QmeKpbsguh9W1Wr3KzvVXcVZX5jLB1ozLo1AQfmGgxoTmg"
+			]
+		},
+		"contracts/interfaces/IPoolAddressesProvider.sol": {
+			"keccak256": "0xf37b9fdb389d45783acfc16664c06f28af953d4a409d1059bdf10b917d41fd4a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb3c42a324ea0adf0095b1e3ea05df7edd70816cfd472e79a29a4fd5b196fa7b",
+				"dweb:/ipfs/QmcSYcH5NZc96EHqAp7sY5Gxvo1229gLnihyBfqme5EdGj"
+			]
+		},
+		"contracts/interfaces/IReserveInterestRateStrategy.sol": {
+			"keccak256": "0x70d69671d225d8aecd556386728c2e172ef44ae24e2b718f333880f783983c7d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d1fcdbc5b88b5dae52d4e15199c8e9265287b31606f30c0a490757b79135d1c2",
+				"dweb:/ipfs/QmegRZoeNysazPJTyrcyzvbszgURJ7QGkb5DJ5hU75Sq4x"
+			]
+		},
+		"contracts/protocol/libraries/helpers/Errors.sol": {
+			"keccak256": "0xb6227b2cd999d01882dcfa20f489bf7b95d7428120253da7833c3361d2c8865d",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://e41c6e7c7ce1e5454602a590b07235e58684f15eef8fb80deb3b1017cff52516",
+				"dweb:/ipfs/QmYkjQHEqKTTZA9WpoXhevUtugDnLqxDdatkmkFxbihT5Z"
+			]
+		},
+		"contracts/protocol/libraries/math/PercentageMath.sol": {
+			"keccak256": "0x944f4990151b34bc0b5043712922e28adc10626e51e3d02e9569609f1caa5b93",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://7c4e655a3fa65ddc390c5a65def26fa44be869c3133ed23f26c7a04f804c86e2",
+				"dweb:/ipfs/QmfNjaMmqW2Zas5SGKku9DeRCLK3FrKfFFkhzPgNUwzySQ"
+			]
+		},
+		"contracts/protocol/libraries/math/WadRayMath.sol": {
+			"keccak256": "0x1fefec0fa31e0b2960c90dd1a637b69e5748fee962d3b5e6f2f6b0b5965a67b1",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://b1e926d9b5a4bc735ab024f78bdd25138e209977d28a49587f496cabfae077e4",
+				"dweb:/ipfs/QmUEYMevf8L7dcFF6CrLc5YKDvDVHdv5fwnXPHiRwbQEBX"
+			]
+		},
+		"contracts/protocol/libraries/types/DataTypes.sol": {
+			"keccak256": "0xf484b9e835d41d75d2ad32ea241e1cc859f278df49a8c4ceb2c0299036e577be",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://eafa12cff7ec168fd0e868ffee3931cc128c57bab003efbdb30e67e73d477fe3",
+				"dweb:/ipfs/QmU6nessQ7F1JLRbeYzZzgkh4E5mRdVh3YqLNN5nxGuUvb"
+			]
+		},
+		"contracts/protocol/pool/DefaultReserveInterestRateStrategy.sol": {
+			"keccak256": "0x7e3e5e5dc719efe729cc026177a791d06e10acf8700a36bf5925c4ad7a8b442c",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://ab1d17ab61bd2986cb515523fe91a92184a9c0af56c3a4a272eb91a4d94573f2",
+				"dweb:/ipfs/QmZNk8ZiaCdcaNCyJc5YhMog84sqBPeLeeZJXAgFLvfzQA"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,392 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "aaveGovShortTimelock",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collector",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IERC20",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collector",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "streamId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelStream",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collector",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deposit",
+						"type": "uint256"
+					},
+					{
+						"internalType": "contract IERC20",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stopTime",
+						"type": "uint256"
+					}
+				],
+				"name": "createStream",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collector",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IERC20",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collector",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "streamId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "funds",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawFromStream",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"approve(address,address,address,uint256)": {
+					"params": {
+						"amount": "Allowance to approve*",
+						"collector": "The collector contract with funds (Aave ecosystem reserve)",
+						"recipient": "Allowance's recipient",
+						"token": "The asset address"
+					}
+				},
+				"cancelStream(address,uint256)": {
+					"params": {
+						"collector": "The collector contract with funds (Aave ecosystem reserve)",
+						"streamId": "The id of the stream to cancel"
+					},
+					"returns": {
+						"_0": "bool If the cancellation happened correctly*"
+					}
+				},
+				"constructor": {
+					"params": {
+						"aaveGovShortTimelock": "The address of the Aave's governance executor, owning this contract"
+					}
+				},
+				"createStream(address,address,uint256,address,uint256,uint256)": {
+					"params": {
+						"collector": "The collector contract with funds (Aave ecosystem reserve)",
+						"deposit": "Total amount to be streamed",
+						"recipient": "The recipient of the stream of token",
+						"startTime": "The unix timestamp for when the stream starts",
+						"stopTime": "The unix timestamp for when the stream stops",
+						"tokenAddress": "The ERC20 token to use as streaming asset"
+					},
+					"returns": {
+						"_0": "uint256 The stream id created*"
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transfer(address,address,address,uint256)": {
+					"params": {
+						"amount": "Amount to transfer*",
+						"collector": "The collector contract with funds (Aave ecosystem reserve)",
+						"recipient": "Transfer's recipient",
+						"token": "The asset address"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"withdrawFromStream(address,uint256,uint256)": {
+					"params": {
+						"collector": "The collector contract with funds (Aave ecosystem reserve)",
+						"funds": "Amount to withdraw",
+						"streamId": "The id of the stream to withdraw tokens from"
+					},
+					"returns": {
+						"_0": "bool If the withdrawal finished properly*"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"approve(address,address,address,uint256)": {
+					"notice": "Proxy function for ERC20's approve(), pointing to a specific collector contract"
+				},
+				"cancelStream(address,uint256)": {
+					"notice": "Proxy function to cancel a stream of token on a specific collector contract"
+				},
+				"constructor": {
+					"notice": "Constructor."
+				},
+				"createStream(address,address,uint256,address,uint256,uint256)": {
+					"notice": "Proxy function to create a stream of token on a specific collector contract"
+				},
+				"transfer(address,address,address,uint256)": {
+					"notice": "Proxy function for ERC20's transfer(), pointing to a specific collector contract"
+				},
+				"withdrawFromStream(address,uint256,uint256)": {
+					"notice": "Proxy function to withdraw from a stream of token on a specific collector contract"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/treasury/AaveEcosystemReserveController.sol": "AaveEcosystemReserveController"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/Context.sol": {
+			"keccak256": "0xc0df5ebb2c3d8b4509464c40a88cc51e5e5f5e4a26fafc909330e9bb2658f641",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dc2690f871399de8f14e4cd8ae9b57a67e135afa28ac4be76594eaf4ecd8e244",
+				"dweb:/ipfs/Qmb9gKAnQBciUknb3ysnfDpWAdYXGJm51NzFYWNkXwoAZg"
+			]
+		},
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0xf57d62241e553696a1324d225663ba2e1a51db0a51ca236d0c1b009d89b6284c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d327db93b636790909aa137124f30a856ac1631cb79c476aa188f9627fda8d03",
+				"dweb:/ipfs/QmaxpmEoBFioeNYmpxJemyZ7aYF2nX1NKW1XDqREm7i6es"
+			]
+		},
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/Ownable.sol": {
+			"keccak256": "0x3ce185c4f579e32006f8893dbfdc1b5d878c0e2cafd1508f7ceb081698bc81f9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://de40129c2380570ce2e883210452f0dc0913788e66be6690084be3d9f8def73f",
+				"dweb:/ipfs/QmVAEtQHTYDPheoDniWaVNyRcWwfu3ccmUCxFXuzxHEwFT"
+			]
+		},
+		"contracts/treasury/AaveEcosystemReserveController.sol": {
+			"keccak256": "0x3dadb2d3e256bad232493cf19318c49977dcf6a5e13b53e6408afea165be96dd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3ee3ccb6a8a932b5a1e8e00071a70423813301b8c4b0a5b0d7a16f6db0858b4e",
+				"dweb:/ipfs/QmPTza4gCLDuC97Qjzwow39gT9WXjxVivRER5ejwEwkPmf"
+			]
+		},
+		"contracts/treasury/interfaces/IAaveEcosystemReserveController.sol": {
+			"keccak256": "0xe205eba8a96bf8987e325053ceaf5dce4d2bcbbe0f0a71f345831fc1cbca4c83",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8fd8d3bfdca0f477902d00bd09d118f702d031744478e48ac87517ddaef55019",
+				"dweb:/ipfs/QmaP5y4xVdiHKFPfkP3jbsZZgLR6zA9qfJdd3SJ4Qg7xHN"
+			]
+		},
+		"contracts/treasury/interfaces/IAdminControlledEcosystemReserve.sol": {
+			"keccak256": "0x98018afde54c4d8ffe2213f9b67dc91cec8d8a9a6962303c222e7fbcbf099583",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d914c234ae88695b09b855e56219d599400f53031d387812d5ce6c1a97620e4a",
+				"dweb:/ipfs/QmewaB3vTNLgDq1h4qQjqdi7f2NwD8CadS1aBjVNnoYQZD"
+			]
+		},
+		"contracts/treasury/interfaces/IStreamable.sol": {
+			"keccak256": "0x0efbc308047fda305fb717a4be706bb109c5bc3b5c8895c76730db425e0a3189",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7c05d70daceee1e470453ca7db02f048bf609c803b68d66d5346c675c69831ef",
+				"dweb:/ipfs/QmWd1dpTNyHcS7GsAEjGUSVxTxbD5Q2XoCuy1UzXrPVGWL"
+			]
+		}
+	},
+	"version": 1
+}

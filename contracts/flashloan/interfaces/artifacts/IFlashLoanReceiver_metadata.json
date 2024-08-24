@@ -1,0 +1,157 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "ADDRESSES_PROVIDER",
+				"outputs": [
+					{
+						"internalType": "contract IPoolAddressesProvider",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "POOL",
+				"outputs": [
+					{
+						"internalType": "contract IPool",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "assets",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "amounts",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "premiums",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "address",
+						"name": "initiator",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "params",
+						"type": "bytes"
+					}
+				],
+				"name": "executeOperation",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave",
+			"details": "Implement this interface to develop a flashloan-compatible flashLoanReceiver contract",
+			"kind": "dev",
+			"methods": {
+				"executeOperation(address[],uint256[],uint256[],address,bytes)": {
+					"details": "Ensure that the contract can return the debt + premium, e.g., has      enough funds to repay and has approved the Pool to pull the total amount",
+					"params": {
+						"amounts": "The amounts of the flash-borrowed assets",
+						"assets": "The addresses of the flash-borrowed assets",
+						"initiator": "The address of the flashloan initiator",
+						"params": "The byte-encoded params passed when initiating the flashloan",
+						"premiums": "The fee of each flash-borrowed asset"
+					},
+					"returns": {
+						"_0": "True if the execution of the operation succeeds, false otherwise"
+					}
+				}
+			},
+			"title": "IFlashLoanReceiver",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"executeOperation(address[],uint256[],uint256[],address,bytes)": {
+					"notice": "Executes an operation after receiving the flash-borrowed assets"
+				}
+			},
+			"notice": "Defines the basic interface of a flashloan-receiver contract.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/flashloan/interfaces/IFlashLoanReceiver.sol": "IFlashLoanReceiver"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/flashloan/interfaces/IFlashLoanReceiver.sol": {
+			"keccak256": "0x86b3b344c6ebbf5936e03b46f78a4b5a839691c774b55992913971791e06c59d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://f61c4cfb88a8e977e242e6c11e807cdb8989282e115786720d2c45b966f62394",
+				"dweb:/ipfs/QmcTnyWMk174zZub6JrJb96s88B8wcanKw9co8VWPJoTZd"
+			]
+		},
+		"contracts/interfaces/IPool.sol": {
+			"keccak256": "0x91fc8cafd9f6fda5046620662d57c5ab5f724375be08903114576216a4980629",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://87c472da79a61750b3cd010532de6092c6be145591f27ca5436850e9985cf3ae",
+				"dweb:/ipfs/QmSVysBKZUepgucokF4Av7i3PJQSj2RSpXKKfYaAcYkR6d"
+			]
+		},
+		"contracts/interfaces/IPoolAddressesProvider.sol": {
+			"keccak256": "0xf37b9fdb389d45783acfc16664c06f28af953d4a409d1059bdf10b917d41fd4a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb3c42a324ea0adf0095b1e3ea05df7edd70816cfd472e79a29a4fd5b196fa7b",
+				"dweb:/ipfs/QmcSYcH5NZc96EHqAp7sY5Gxvo1229gLnihyBfqme5EdGj"
+			]
+		},
+		"contracts/protocol/libraries/types/DataTypes.sol": {
+			"keccak256": "0xf484b9e835d41d75d2ad32ea241e1cc859f278df49a8c4ceb2c0299036e577be",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://eafa12cff7ec168fd0e868ffee3931cc128c57bab003efbdb30e67e73d477fe3",
+				"dweb:/ipfs/QmU6nessQ7F1JLRbeYzZzgkh4E5mRdVh3YqLNN5nxGuUvb"
+			]
+		}
+	},
+	"version": 1
+}

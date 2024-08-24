@@ -1,0 +1,267 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "incentivesController",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "rewardsAdmin",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "rewardsVault",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "EmergencyWithdrawal",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "emergencyWithdrawal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getIncentivesController",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRewardsAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRewardsVault",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "performTransfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave*",
+			"kind": "dev",
+			"methods": {
+				"emergencyWithdrawal(address,address,uint256)": {
+					"details": "Perform an emergency token withdrawal only callable by the Rewards admin",
+					"params": {
+						"amount": "Amount of the withdrawal",
+						"to": "Address of the recipient of the withdrawal",
+						"token": "Address of the token to withdraw funds from this contract"
+					}
+				},
+				"getIncentivesController()": {
+					"returns": {
+						"_0": "Returns the address of the Incentives Controller"
+					}
+				},
+				"getRewardsAdmin()": {
+					"returns": {
+						"_0": "Returns the address of the Rewards admin"
+					}
+				},
+				"getRewardsVault()": {
+					"returns": {
+						"_0": "Address of the rewards vault"
+					}
+				},
+				"performTransfer(address,address,uint256)": {
+					"details": "Perform custom transfer logic via delegate call from source contract to a TransferStrategy implementation",
+					"params": {
+						"amount": "Amount to transfer to the \"to\" address parameter",
+						"reward": "Address of the reward token",
+						"to": "Account to transfer rewards"
+					},
+					"returns": {
+						"_0": "Returns true bool if transfer logic succeeds"
+					}
+				}
+			},
+			"title": "PullRewardsTransferStrategy",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Transfer strategy that pulls ERC20 rewards from an external account to the user address. The external account could be a smart contract or EOA that must approve to the PullRewardsTransferStrategy contract address.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/rewards/transfer-strategies/PullRewardsTransferStrategy.sol": "PullRewardsTransferStrategy"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@aave/core-v3/contracts/dependencies/gnosis/contracts/GPv2SafeERC20.sol": {
+			"keccak256": "0xb18337187a2a6c4e64c61f8e4e06f0e932a69bb8f33688943bf50d7f4198e44b",
+			"license": "LGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://38c0769720d226d41fb5a0f504a0b9434ca266acb15d1de9bbc08f1a5c8a7bbc",
+				"dweb:/ipfs/QmeskcXDL7cbMXbjEdAdbUamKmjqYKBwRfheFZmm9mpBKJ"
+			]
+		},
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0xf57d62241e553696a1324d225663ba2e1a51db0a51ca236d0c1b009d89b6284c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d327db93b636790909aa137124f30a856ac1631cb79c476aa188f9627fda8d03",
+				"dweb:/ipfs/QmaxpmEoBFioeNYmpxJemyZ7aYF2nX1NKW1XDqREm7i6es"
+			]
+		},
+		"contracts/rewards/interfaces/IPullRewardsTransferStrategy.sol": {
+			"keccak256": "0x0301e8b8a317ad4f41fd29b6ebe099a9d1298dd2240e0d3705d4dc3589cb88a6",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bd90c2bfdb7054b8cdf967429c300c4b6dae620ff49265ff991a57ed8a906f19",
+				"dweb:/ipfs/QmWg364yseqp5FZstqykayqV2eBkwP7PhA7nnEEMFrJy1D"
+			]
+		},
+		"contracts/rewards/interfaces/ITransferStrategyBase.sol": {
+			"keccak256": "0x06217cc5297b238a5a11f666de608edb4f113593ad8be24db6eefa97e6e6346d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d80b6f9a5fdfe18e9e1b7b96fd795bb070cd4228e8590d9e7692b87972ab669b",
+				"dweb:/ipfs/QmQM9MzVkfEjFznBa5p6vvbvmUpnntPSnTfwsa9fQwsTKc"
+			]
+		},
+		"contracts/rewards/transfer-strategies/PullRewardsTransferStrategy.sol": {
+			"keccak256": "0x2887bb6bbbad446cda86eded0f115aa363c65ba8e66dcbf86ad4079b92e35133",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://c2e7374556f98ce75bd92f651bac60ce36502365ed219b497f9f98d8f877f698",
+				"dweb:/ipfs/QmZ8dteLpQUY3L27FuNNcEjbM1TUq16abzFBQvVd8khgQc"
+			]
+		},
+		"contracts/rewards/transfer-strategies/TransferStrategyBase.sol": {
+			"keccak256": "0x15840e56da6e30e9e6b4e50e6dbf2873343627437c1b123fbe377e968892e1af",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://8749bfc8de35fee3977374f0fbd3238df5c1a0e31e57230219ae5b005b8a4587",
+				"dweb:/ipfs/QmehKLX9iiZ84zy4pboaD551vqkoaUyYBEiZ4fxHa3h6Xx"
+			]
+		}
+	},
+	"version": 1
+}

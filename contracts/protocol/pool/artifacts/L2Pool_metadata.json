@@ -1,0 +1,3100 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IPoolAddressesProvider",
+						"name": "provider",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "backer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					}
+				],
+				"name": "BackUnbacked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum DataTypes.InterestRateMode",
+						"name": "interestRateMode",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "borrowRate",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					}
+				],
+				"name": "Borrow",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "initiator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum DataTypes.InterestRateMode",
+						"name": "interestRateMode",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "premium",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					}
+				],
+				"name": "FlashLoan",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalDebt",
+						"type": "uint256"
+					}
+				],
+				"name": "IsolationModeTotalDebtUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "collateralAsset",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "debtAsset",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "debtToCover",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "liquidatedCollateralAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "liquidator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "receiveAToken",
+						"type": "bool"
+					}
+				],
+				"name": "LiquidationCall",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					}
+				],
+				"name": "MintUnbacked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountMinted",
+						"type": "uint256"
+					}
+				],
+				"name": "MintedToTreasury",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "RebalanceStableBorrowRate",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "repayer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "useATokens",
+						"type": "bool"
+					}
+				],
+				"name": "Repay",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "liquidityRate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stableBorrowRate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "variableBorrowRate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "liquidityIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "variableBorrowIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "ReserveDataUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "ReserveUsedAsCollateralDisabled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "ReserveUsedAsCollateralEnabled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					}
+				],
+				"name": "Supply",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum DataTypes.InterestRateMode",
+						"name": "interestRateMode",
+						"type": "uint8"
+					}
+				],
+				"name": "SwapBorrowRateMode",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "categoryId",
+						"type": "uint8"
+					}
+				],
+				"name": "UserEModeSet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reserve",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdraw",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ADDRESSES_PROVIDER",
+				"outputs": [
+					{
+						"internalType": "contract IPoolAddressesProvider",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "BRIDGE_PROTOCOL_FEE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "FLASHLOAN_PREMIUM_TOTAL",
+				"outputs": [
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "FLASHLOAN_PREMIUM_TO_PROTOCOL",
+				"outputs": [
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_NUMBER_RESERVES",
+				"outputs": [
+					{
+						"internalType": "uint16",
+						"name": "",
+						"type": "uint16"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_STABLE_RATE_BORROW_SIZE_PERCENT",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "POOL_REVISION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					}
+				],
+				"name": "backUnbacked",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "interestRateMode",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					},
+					{
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					}
+				],
+				"name": "borrow",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args",
+						"type": "bytes32"
+					}
+				],
+				"name": "borrow",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "id",
+						"type": "uint8"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint16",
+								"name": "ltv",
+								"type": "uint16"
+							},
+							{
+								"internalType": "uint16",
+								"name": "liquidationThreshold",
+								"type": "uint16"
+							},
+							{
+								"internalType": "uint16",
+								"name": "liquidationBonus",
+								"type": "uint16"
+							},
+							{
+								"internalType": "address",
+								"name": "priceSource",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "label",
+								"type": "string"
+							}
+						],
+						"internalType": "struct DataTypes.EModeCategory",
+						"name": "category",
+						"type": "tuple"
+					}
+				],
+				"name": "configureEModeCategory",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					}
+				],
+				"name": "dropReserve",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balanceFromBefore",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balanceToBefore",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeTransfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "receiverAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address[]",
+						"name": "assets",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "amounts",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "interestRateModes",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "params",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					}
+				],
+				"name": "flashLoan",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "receiverAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "params",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					}
+				],
+				"name": "flashLoanSimple",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					}
+				],
+				"name": "getConfiguration",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "data",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct DataTypes.ReserveConfigurationMap",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "id",
+						"type": "uint8"
+					}
+				],
+				"name": "getEModeCategoryData",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint16",
+								"name": "ltv",
+								"type": "uint16"
+							},
+							{
+								"internalType": "uint16",
+								"name": "liquidationThreshold",
+								"type": "uint16"
+							},
+							{
+								"internalType": "uint16",
+								"name": "liquidationBonus",
+								"type": "uint16"
+							},
+							{
+								"internalType": "address",
+								"name": "priceSource",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "label",
+								"type": "string"
+							}
+						],
+						"internalType": "struct DataTypes.EModeCategory",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "id",
+						"type": "uint16"
+					}
+				],
+				"name": "getReserveAddressById",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					}
+				],
+				"name": "getReserveData",
+				"outputs": [
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "data",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct DataTypes.ReserveConfigurationMap",
+								"name": "configuration",
+								"type": "tuple"
+							},
+							{
+								"internalType": "uint128",
+								"name": "liquidityIndex",
+								"type": "uint128"
+							},
+							{
+								"internalType": "uint128",
+								"name": "currentLiquidityRate",
+								"type": "uint128"
+							},
+							{
+								"internalType": "uint128",
+								"name": "variableBorrowIndex",
+								"type": "uint128"
+							},
+							{
+								"internalType": "uint128",
+								"name": "currentVariableBorrowRate",
+								"type": "uint128"
+							},
+							{
+								"internalType": "uint128",
+								"name": "currentStableBorrowRate",
+								"type": "uint128"
+							},
+							{
+								"internalType": "uint40",
+								"name": "lastUpdateTimestamp",
+								"type": "uint40"
+							},
+							{
+								"internalType": "uint16",
+								"name": "id",
+								"type": "uint16"
+							},
+							{
+								"internalType": "address",
+								"name": "aTokenAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "stableDebtTokenAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "variableDebtTokenAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "interestRateStrategyAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint128",
+								"name": "accruedToTreasury",
+								"type": "uint128"
+							},
+							{
+								"internalType": "uint128",
+								"name": "unbacked",
+								"type": "uint128"
+							},
+							{
+								"internalType": "uint128",
+								"name": "isolationModeTotalDebt",
+								"type": "uint128"
+							}
+						],
+						"internalType": "struct DataTypes.ReserveData",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					}
+				],
+				"name": "getReserveNormalizedIncome",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					}
+				],
+				"name": "getReserveNormalizedVariableDebt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getReservesList",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserAccountData",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "totalCollateralBase",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalDebtBase",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "availableBorrowsBase",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentLiquidationThreshold",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ltv",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "healthFactor",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserConfiguration",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "data",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct DataTypes.UserConfigurationMap",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getUserEMode",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "aTokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "stableDebtAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "variableDebtAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "interestRateStrategyAddress",
+						"type": "address"
+					}
+				],
+				"name": "initReserve",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IPoolAddressesProvider",
+						"name": "provider",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collateralAsset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "debtAsset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "debtToCover",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "receiveAToken",
+						"type": "bool"
+					}
+				],
+				"name": "liquidationCall",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args1",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "args2",
+						"type": "bytes32"
+					}
+				],
+				"name": "liquidationCall",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "assets",
+						"type": "address[]"
+					}
+				],
+				"name": "mintToTreasury",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					}
+				],
+				"name": "mintUnbacked",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args",
+						"type": "bytes32"
+					}
+				],
+				"name": "rebalanceStableBorrowRate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "rebalanceStableBorrowRate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args",
+						"type": "bytes32"
+					}
+				],
+				"name": "repay",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "interestRateMode",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					}
+				],
+				"name": "repay",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "interestRateMode",
+						"type": "uint256"
+					}
+				],
+				"name": "repayWithATokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args",
+						"type": "bytes32"
+					}
+				],
+				"name": "repayWithATokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "r",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "repayWithPermit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "interestRateMode",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "permitV",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "permitR",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "permitS",
+						"type": "bytes32"
+					}
+				],
+				"name": "repayWithPermit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "rescueTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					}
+				],
+				"name": "resetIsolationModeTotalDebt",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "data",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct DataTypes.ReserveConfigurationMap",
+						"name": "configuration",
+						"type": "tuple"
+					}
+				],
+				"name": "setConfiguration",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "rateStrategyAddress",
+						"type": "address"
+					}
+				],
+				"name": "setReserveInterestRateStrategyAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "categoryId",
+						"type": "uint8"
+					}
+				],
+				"name": "setUserEMode",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args",
+						"type": "bytes32"
+					}
+				],
+				"name": "setUserUseReserveAsCollateral",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "useAsCollateral",
+						"type": "bool"
+					}
+				],
+				"name": "setUserUseReserveAsCollateral",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					}
+				],
+				"name": "supply",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args",
+						"type": "bytes32"
+					}
+				],
+				"name": "supply",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "referralCode",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "permitV",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "permitR",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "permitS",
+						"type": "bytes32"
+					}
+				],
+				"name": "supplyWithPermit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "r",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "supplyWithPermit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args",
+						"type": "bytes32"
+					}
+				],
+				"name": "swapBorrowRateMode",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "interestRateMode",
+						"type": "uint256"
+					}
+				],
+				"name": "swapBorrowRateMode",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "protocolFee",
+						"type": "uint256"
+					}
+				],
+				"name": "updateBridgeProtocolFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint128",
+						"name": "flashLoanPremiumTotal",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "flashLoanPremiumToProtocol",
+						"type": "uint128"
+					}
+				],
+				"name": "updateFlashloanPremiums",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "args",
+						"type": "bytes32"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave",
+			"events": {
+				"BackUnbacked(address,address,uint256,uint256)": {
+					"details": "Emitted on backUnbacked()",
+					"params": {
+						"amount": "The amount added as backing",
+						"backer": "The address paying for the backing",
+						"fee": "The amount paid in fees",
+						"reserve": "The address of the underlying asset of the reserve"
+					}
+				},
+				"Borrow(address,address,address,uint256,uint8,uint256,uint16)": {
+					"details": "Emitted on borrow() and flashLoan() when debt needs to be opened",
+					"params": {
+						"amount": "The amount borrowed out",
+						"borrowRate": "The numeric rate at which the user has borrowed, expressed in ray",
+						"interestRateMode": "The rate mode: 1 for Stable, 2 for Variable",
+						"onBehalfOf": "The address that will be getting the debt",
+						"referralCode": "The referral code used",
+						"reserve": "The address of the underlying asset being borrowed",
+						"user": "The address of the user initiating the borrow(), receiving the funds on borrow() or just initiator of the transaction on flashLoan()"
+					}
+				},
+				"FlashLoan(address,address,address,uint256,uint8,uint256,uint16)": {
+					"details": "Emitted on flashLoan()",
+					"params": {
+						"amount": "The amount flash borrowed",
+						"asset": "The address of the asset being flash borrowed",
+						"initiator": "The address initiating the flash loan",
+						"interestRateMode": "The flashloan mode: 0 for regular flashloan, 1 for Stable debt, 2 for Variable debt",
+						"premium": "The fee flash borrowed",
+						"referralCode": "The referral code used",
+						"target": "The address of the flash loan receiver contract"
+					}
+				},
+				"IsolationModeTotalDebtUpdated(address,uint256)": {
+					"details": "Emitted on borrow(), repay() and liquidationCall() when using isolated assets",
+					"params": {
+						"asset": "The address of the underlying asset of the reserve",
+						"totalDebt": "The total isolation mode debt for the reserve"
+					}
+				},
+				"LiquidationCall(address,address,address,uint256,uint256,address,bool)": {
+					"details": "Emitted when a borrower is liquidated.",
+					"params": {
+						"collateralAsset": "The address of the underlying asset used as collateral, to receive as result of the liquidation",
+						"debtAsset": "The address of the underlying borrowed asset to be repaid with the liquidation",
+						"debtToCover": "The debt amount of borrowed `asset` the liquidator wants to cover",
+						"liquidatedCollateralAmount": "The amount of collateral received by the liquidator",
+						"liquidator": "The address of the liquidator",
+						"receiveAToken": "True if the liquidators wants to receive the collateral aTokens, `false` if he wants to receive the underlying collateral asset directly",
+						"user": "The address of the borrower getting liquidated"
+					}
+				},
+				"MintUnbacked(address,address,address,uint256,uint16)": {
+					"details": "Emitted on mintUnbacked()",
+					"params": {
+						"amount": "The amount of supplied assets",
+						"onBehalfOf": "The beneficiary of the supplied assets, receiving the aTokens",
+						"referralCode": "The referral code used",
+						"reserve": "The address of the underlying asset of the reserve",
+						"user": "The address initiating the supply"
+					}
+				},
+				"MintedToTreasury(address,uint256)": {
+					"details": "Emitted when the protocol treasury receives minted aTokens from the accrued interest.",
+					"params": {
+						"amountMinted": "The amount minted to the treasury",
+						"reserve": "The address of the reserve"
+					}
+				},
+				"RebalanceStableBorrowRate(address,address)": {
+					"details": "Emitted on rebalanceStableBorrowRate()",
+					"params": {
+						"reserve": "The address of the underlying asset of the reserve",
+						"user": "The address of the user for which the rebalance has been executed"
+					}
+				},
+				"Repay(address,address,address,uint256,bool)": {
+					"details": "Emitted on repay()",
+					"params": {
+						"amount": "The amount repaid",
+						"repayer": "The address of the user initiating the repay(), providing the funds",
+						"reserve": "The address of the underlying asset of the reserve",
+						"useATokens": "True if the repayment is done using aTokens, `false` if done with underlying asset directly",
+						"user": "The beneficiary of the repayment, getting his debt reduced"
+					}
+				},
+				"ReserveDataUpdated(address,uint256,uint256,uint256,uint256,uint256)": {
+					"details": "Emitted when the state of a reserve is updated.",
+					"params": {
+						"liquidityIndex": "The next liquidity index",
+						"liquidityRate": "The next liquidity rate",
+						"reserve": "The address of the underlying asset of the reserve",
+						"stableBorrowRate": "The next stable borrow rate",
+						"variableBorrowIndex": "The next variable borrow index",
+						"variableBorrowRate": "The next variable borrow rate"
+					}
+				},
+				"ReserveUsedAsCollateralDisabled(address,address)": {
+					"details": "Emitted on setUserUseReserveAsCollateral()",
+					"params": {
+						"reserve": "The address of the underlying asset of the reserve",
+						"user": "The address of the user enabling the usage as collateral"
+					}
+				},
+				"ReserveUsedAsCollateralEnabled(address,address)": {
+					"details": "Emitted on setUserUseReserveAsCollateral()",
+					"params": {
+						"reserve": "The address of the underlying asset of the reserve",
+						"user": "The address of the user enabling the usage as collateral"
+					}
+				},
+				"Supply(address,address,address,uint256,uint16)": {
+					"details": "Emitted on supply()",
+					"params": {
+						"amount": "The amount supplied",
+						"onBehalfOf": "The beneficiary of the supply, receiving the aTokens",
+						"referralCode": "The referral code used",
+						"reserve": "The address of the underlying asset of the reserve",
+						"user": "The address initiating the supply"
+					}
+				},
+				"SwapBorrowRateMode(address,address,uint8)": {
+					"details": "Emitted on swapBorrowRateMode()",
+					"params": {
+						"interestRateMode": "The current interest rate mode of the position being swapped: 1 for Stable, 2 for Variable",
+						"reserve": "The address of the underlying asset of the reserve",
+						"user": "The address of the user swapping his rate mode"
+					}
+				},
+				"UserEModeSet(address,uint8)": {
+					"details": "Emitted when the user selects a certain asset category for eMode",
+					"params": {
+						"categoryId": "The category id",
+						"user": "The address of the user"
+					}
+				},
+				"Withdraw(address,address,address,uint256)": {
+					"details": "Emitted on withdraw()",
+					"params": {
+						"amount": "The amount to be withdrawn",
+						"reserve": "The address of the underlying asset being withdrawn",
+						"to": "The address that will receive the underlying",
+						"user": "The address initiating the withdrawal, owner of aTokens"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"BRIDGE_PROTOCOL_FEE()": {
+					"returns": {
+						"_0": "The bridge fee sent to the protocol treasury"
+					}
+				},
+				"FLASHLOAN_PREMIUM_TOTAL()": {
+					"returns": {
+						"_0": "The total fee on flashloans"
+					}
+				},
+				"FLASHLOAN_PREMIUM_TO_PROTOCOL()": {
+					"returns": {
+						"_0": "The flashloan fee sent to the protocol treasury"
+					}
+				},
+				"MAX_NUMBER_RESERVES()": {
+					"returns": {
+						"_0": "The maximum number of reserves supported"
+					}
+				},
+				"MAX_STABLE_RATE_BORROW_SIZE_PERCENT()": {
+					"returns": {
+						"_0": "The percentage of available liquidity to borrow, expressed in bps"
+					}
+				},
+				"backUnbacked(address,uint256,uint256)": {
+					"params": {
+						"amount": "The amount to back",
+						"asset": "The address of the underlying asset to back",
+						"fee": "The amount paid in fees"
+					},
+					"returns": {
+						"_0": "The backed amount"
+					}
+				},
+				"borrow(address,uint256,uint256,uint16,address)": {
+					"params": {
+						"amount": "The amount to be borrowed",
+						"asset": "The address of the underlying asset to borrow",
+						"interestRateMode": "The interest rate mode at which the user wants to borrow: 1 for Stable, 2 for Variable",
+						"onBehalfOf": "The address of the user who will receive the debt. Should be the address of the borrower itself calling the function if he wants to borrow against his own collateral, or the address of the credit delegator if he has been given credit delegation allowance",
+						"referralCode": "The code used to register the integrator originating the operation, for potential rewards.   0 if the action is executed directly by the user, without any middle-man"
+					}
+				},
+				"borrow(bytes32)": {
+					"details": "the shortenedAmount is cast to 256 bits at decode time, if type(uint128).max the value will be expanded to type(uint256).maxassetId is the index of the asset in the reservesList.",
+					"params": {
+						"args": "Arguments for the borrow function packed in one bytes32    88 bits       16 bits             8 bits                 128 bits       16 bits | 0-padding | referralCode | shortenedInterestRateMode | shortenedAmount | assetId |"
+					}
+				},
+				"configureEModeCategory(uint8,(uint16,uint16,uint16,address,string))": {
+					"details": "In eMode, the protocol allows very high borrowing power to borrow assets of the same category. The category 0 is reserved as it's the default for volatile assets",
+					"params": {
+						"config": "The configuration of the category",
+						"id": "The id of the category"
+					}
+				},
+				"constructor": {
+					"details": "Constructor.",
+					"params": {
+						"provider": "The address of the PoolAddressesProvider contract"
+					}
+				},
+				"deposit(address,uint256,address,uint16)": {
+					"details": "Deprecated: maintained for compatibility purposes",
+					"params": {
+						"amount": "The amount to be supplied",
+						"asset": "The address of the underlying asset to supply",
+						"onBehalfOf": "The address that will receive the aTokens, same as msg.sender if the user   wants to receive them on his own wallet, or a different address if the beneficiary of aTokens   is a different wallet",
+						"referralCode": "Code used to register the integrator originating the operation, for potential rewards.   0 if the action is executed directly by the user, without any middle-man"
+					}
+				},
+				"dropReserve(address)": {
+					"details": "Only callable by the PoolConfigurator contract",
+					"params": {
+						"asset": "The address of the underlying asset of the reserve"
+					}
+				},
+				"finalizeTransfer(address,address,address,uint256,uint256,uint256)": {
+					"details": "Only callable by the overlying aToken of the `asset`",
+					"params": {
+						"amount": "The amount being transferred/withdrawn",
+						"asset": "The address of the underlying asset of the aToken",
+						"balanceFromBefore": "The aToken balance of the `from` user before the transfer",
+						"balanceToBefore": "The aToken balance of the `to` user before the transfer",
+						"from": "The user from which the aTokens are transferred",
+						"to": "The user receiving the aTokens"
+					}
+				},
+				"flashLoan(address,address[],uint256[],uint256[],address,bytes,uint16)": {
+					"details": "IMPORTANT There are security concerns for developers of flashloan receiver contracts that must be kept into consideration. For further details please visit https://docs.aave.com/developers/",
+					"params": {
+						"amounts": "The amounts of the assets being flash-borrowed",
+						"assets": "The addresses of the assets being flash-borrowed",
+						"interestRateModes": "Types of the debt to open if the flash loan is not returned:   0 -> Don't open any debt, just revert if funds can't be transferred from the receiver   1 -> Open debt at stable rate for the value of the amount flash-borrowed to the `onBehalfOf` address   2 -> Open debt at variable rate for the value of the amount flash-borrowed to the `onBehalfOf` address",
+						"onBehalfOf": "The address  that will receive the debt in the case of using on `modes` 1 or 2",
+						"params": "Variadic packed params to pass to the receiver as extra information",
+						"receiverAddress": "The address of the contract receiving the funds, implementing IFlashLoanReceiver interface",
+						"referralCode": "The code used to register the integrator originating the operation, for potential rewards.   0 if the action is executed directly by the user, without any middle-man"
+					}
+				},
+				"flashLoanSimple(address,address,uint256,bytes,uint16)": {
+					"details": "IMPORTANT There are security concerns for developers of flashloan receiver contracts that must be kept into consideration. For further details please visit https://docs.aave.com/developers/",
+					"params": {
+						"amount": "The amount of the asset being flash-borrowed",
+						"asset": "The address of the asset being flash-borrowed",
+						"params": "Variadic packed params to pass to the receiver as extra information",
+						"receiverAddress": "The address of the contract receiving the funds, implementing IFlashLoanSimpleReceiver interface",
+						"referralCode": "The code used to register the integrator originating the operation, for potential rewards.   0 if the action is executed directly by the user, without any middle-man"
+					}
+				},
+				"getConfiguration(address)": {
+					"params": {
+						"asset": "The address of the underlying asset of the reserve"
+					},
+					"returns": {
+						"_0": "The configuration of the reserve"
+					}
+				},
+				"getEModeCategoryData(uint8)": {
+					"params": {
+						"id": "The id of the category"
+					},
+					"returns": {
+						"_0": "The configuration data of the category"
+					}
+				},
+				"getReserveAddressById(uint16)": {
+					"params": {
+						"id": "The id of the reserve as stored in the DataTypes.ReserveData struct"
+					},
+					"returns": {
+						"_0": "The address of the reserve associated with id"
+					}
+				},
+				"getReserveData(address)": {
+					"params": {
+						"asset": "The address of the underlying asset of the reserve"
+					},
+					"returns": {
+						"_0": "The state and configuration data of the reserve"
+					}
+				},
+				"getReserveNormalizedIncome(address)": {
+					"params": {
+						"asset": "The address of the underlying asset of the reserve"
+					},
+					"returns": {
+						"_0": "The reserve's normalized income"
+					}
+				},
+				"getReserveNormalizedVariableDebt(address)": {
+					"details": "WARNING: This function is intended to be used primarily by the protocol itself to get a \"dynamic\" variable index based on time, current stored index and virtual rate at the current moment (approx. a borrower would get if opening a position). This means that is always used in combination with variable debt supply/balances. If using this function externally, consider that is possible to have an increasing normalized variable debt that is not equivalent to how the variable debt index would be updated in storage (e.g. only updates with non-zero variable debt supply)",
+					"params": {
+						"asset": "The address of the underlying asset of the reserve"
+					},
+					"returns": {
+						"_0": "The reserve normalized variable debt"
+					}
+				},
+				"getReservesList()": {
+					"details": "It does not include dropped reserves",
+					"returns": {
+						"_0": "The addresses of the underlying assets of the initialized reserves"
+					}
+				},
+				"getUserAccountData(address)": {
+					"params": {
+						"user": "The address of the user"
+					},
+					"returns": {
+						"availableBorrowsBase": "The borrowing power left of the user in the base currency used by the price feed",
+						"currentLiquidationThreshold": "The liquidation threshold of the user",
+						"healthFactor": "The current health factor of the user",
+						"ltv": "The loan to value of The user",
+						"totalCollateralBase": "The total collateral of the user in the base currency used by the price feed",
+						"totalDebtBase": "The total debt of the user in the base currency used by the price feed"
+					}
+				},
+				"getUserConfiguration(address)": {
+					"params": {
+						"user": "The user address"
+					},
+					"returns": {
+						"_0": "The configuration of the user"
+					}
+				},
+				"getUserEMode(address)": {
+					"params": {
+						"user": "The address of the user"
+					},
+					"returns": {
+						"_0": "The eMode id"
+					}
+				},
+				"initReserve(address,address,address,address,address)": {
+					"details": "Only callable by the PoolConfigurator contract",
+					"params": {
+						"aTokenAddress": "The address of the aToken that will be assigned to the reserve",
+						"asset": "The address of the underlying asset of the reserve",
+						"interestRateStrategyAddress": "The address of the interest rate strategy contract",
+						"stableDebtAddress": "The address of the StableDebtToken that will be assigned to the reserve",
+						"variableDebtAddress": "The address of the VariableDebtToken that will be assigned to the reserve"
+					}
+				},
+				"initialize(address)": {
+					"details": "Function is invoked by the proxy contract when the Pool contract is added to the PoolAddressesProvider of the market.Caching the address of the PoolAddressesProvider in order to reduce gas consumption on subsequent operations",
+					"params": {
+						"provider": "The address of the PoolAddressesProvider"
+					}
+				},
+				"liquidationCall(address,address,address,uint256,bool)": {
+					"params": {
+						"collateralAsset": "The address of the underlying asset used as collateral, to receive as result of the liquidation",
+						"debtAsset": "The address of the underlying borrowed asset to be repaid with the liquidation",
+						"debtToCover": "The debt amount of borrowed `asset` the liquidator wants to cover",
+						"receiveAToken": "True if the liquidators wants to receive the collateral aTokens, `false` if he wants to receive the underlying collateral asset directly",
+						"user": "The address of the borrower getting liquidated"
+					}
+				},
+				"liquidationCall(bytes32,bytes32)": {
+					"details": "the shortenedDebtToCover is cast to 256 bits at decode time, if type(uint128).max the value will be expanded to type(uint256).max",
+					"params": {
+						"args1": "part of the arguments for the liquidationCall function packed in one bytes32    64 bits      160 bits       16 bits         16 bits | 0-padding | user address | debtAssetId | collateralAssetId |",
+						"args2": "part of the arguments for the liquidationCall function packed in one bytes32    127 bits       1 bit             128 bits | 0-padding | receiveAToken | shortenedDebtToCover |"
+					}
+				},
+				"mintToTreasury(address[])": {
+					"params": {
+						"assets": "The list of reserves for which the minting needs to be executed"
+					}
+				},
+				"mintUnbacked(address,uint256,address,uint16)": {
+					"params": {
+						"amount": "The amount to mint",
+						"asset": "The address of the underlying asset to mint",
+						"onBehalfOf": "The address that will receive the aTokens",
+						"referralCode": "Code used to register the integrator originating the operation, for potential rewards.   0 if the action is executed directly by the user, without any middle-man"
+					}
+				},
+				"rebalanceStableBorrowRate(address,address)": {
+					"params": {
+						"asset": "The address of the underlying asset borrowed",
+						"user": "The address of the user to be rebalanced"
+					}
+				},
+				"rebalanceStableBorrowRate(bytes32)": {
+					"details": "assetId is the index of the asset in the reservesList.",
+					"params": {
+						"args": "Arguments for the rebalanceStableBorrowRate function packed in one bytes32    80 bits      160 bits     16 bits | 0-padding | user address | assetId |"
+					}
+				},
+				"repay(address,uint256,uint256,address)": {
+					"params": {
+						"amount": "The amount to repay - Send the value type(uint256).max in order to repay the whole debt for `asset` on the specific `debtMode`",
+						"asset": "The address of the borrowed underlying asset previously borrowed",
+						"interestRateMode": "The interest rate mode at of the debt the user wants to repay: 1 for Stable, 2 for Variable",
+						"onBehalfOf": "The address of the user who will get his debt reduced/removed. Should be the address of the user calling the function if he wants to reduce/remove his own debt, or the address of any other other borrower whose debt should be removed"
+					},
+					"returns": {
+						"_0": "The final amount repaid"
+					}
+				},
+				"repay(bytes32)": {
+					"details": "the shortenedAmount is cast to 256 bits at decode time, if type(uint128).max the value will be expanded to type(uint256).maxassetId is the index of the asset in the reservesList.",
+					"params": {
+						"args": "Arguments for the repay function packed in one bytes32    104 bits             8 bits               128 bits       16 bits | 0-padding | shortenedInterestRateMode | shortenedAmount | assetId |"
+					},
+					"returns": {
+						"_0": "The final amount repaid"
+					}
+				},
+				"repayWithATokens(address,uint256,uint256)": {
+					"details": "Passing uint256.max as amount will clean up any residual aToken dust balance, if the user aToken balance is not enough to cover the whole debt",
+					"params": {
+						"amount": "The amount to repay - Send the value type(uint256).max in order to repay the whole debt for `asset` on the specific `debtMode`",
+						"asset": "The address of the borrowed underlying asset previously borrowed",
+						"interestRateMode": "The interest rate mode at of the debt the user wants to repay: 1 for Stable, 2 for Variable"
+					},
+					"returns": {
+						"_0": "The final amount repaid"
+					}
+				},
+				"repayWithATokens(bytes32)": {
+					"details": "the shortenedAmount is cast to 256 bits at decode time, if type(uint128).max the value will be expanded to type(uint256).maxassetId is the index of the asset in the reservesList.",
+					"params": {
+						"args": "Arguments for the repayWithATokens function packed in one bytes32    104 bits             8 bits               128 bits       16 bits | 0-padding | shortenedInterestRateMode | shortenedAmount | assetId |"
+					},
+					"returns": {
+						"_0": "The final amount repaid"
+					}
+				},
+				"repayWithPermit(address,uint256,uint256,address,uint256,uint8,bytes32,bytes32)": {
+					"params": {
+						"amount": "The amount to repay - Send the value type(uint256).max in order to repay the whole debt for `asset` on the specific `debtMode`",
+						"asset": "The address of the borrowed underlying asset previously borrowed",
+						"deadline": "The deadline timestamp that the permit is valid",
+						"interestRateMode": "The interest rate mode at of the debt the user wants to repay: 1 for Stable, 2 for Variable",
+						"onBehalfOf": "Address of the user who will get his debt reduced/removed. Should be the address of the user calling the function if he wants to reduce/remove his own debt, or the address of any other other borrower whose debt should be removed",
+						"permitR": "The R parameter of ERC712 permit sig",
+						"permitS": "The S parameter of ERC712 permit sig",
+						"permitV": "The V parameter of ERC712 permit sig"
+					},
+					"returns": {
+						"_0": "The final amount repaid"
+					}
+				},
+				"repayWithPermit(bytes32,bytes32,bytes32)": {
+					"details": "the shortenedAmount is cast to 256 bits at decode time, if type(uint128).max the value will be expanded to type(uint256).maxassetId is the index of the asset in the reservesList.",
+					"params": {
+						"args": "Arguments for the repayWithPermit function packed in one bytes32    64 bits    8 bits        32 bits                   8 bits               128 bits       16 bits | 0-padding | permitV | shortenedDeadline | shortenedInterestRateMode | shortenedAmount | assetId |",
+						"r": "The R parameter of ERC712 permit sig",
+						"s": "The S parameter of ERC712 permit sig"
+					},
+					"returns": {
+						"_0": "The final amount repaid"
+					}
+				},
+				"rescueTokens(address,address,uint256)": {
+					"params": {
+						"amount": "The amount of token to transfer",
+						"to": "The address of the recipient",
+						"token": "The address of the token"
+					}
+				},
+				"resetIsolationModeTotalDebt(address)": {
+					"details": "It requires the given asset has zero debt ceiling",
+					"params": {
+						"asset": "The address of the underlying asset to reset the isolationModeTotalDebt"
+					}
+				},
+				"setConfiguration(address,(uint256))": {
+					"details": "Only callable by the PoolConfigurator contract",
+					"params": {
+						"asset": "The address of the underlying asset of the reserve",
+						"configuration": "The new configuration bitmap"
+					}
+				},
+				"setReserveInterestRateStrategyAddress(address,address)": {
+					"details": "Only callable by the PoolConfigurator contract",
+					"params": {
+						"asset": "The address of the underlying asset of the reserve",
+						"rateStrategyAddress": "The address of the interest rate strategy contract"
+					}
+				},
+				"setUserEMode(uint8)": {
+					"params": {
+						"categoryId": "The id of the category"
+					}
+				},
+				"setUserUseReserveAsCollateral(address,bool)": {
+					"params": {
+						"asset": "The address of the underlying asset supplied",
+						"useAsCollateral": "True if the user wants to use the supply as collateral, false otherwise"
+					}
+				},
+				"setUserUseReserveAsCollateral(bytes32)": {
+					"details": "assetId is the index of the asset in the reservesList.",
+					"params": {
+						"args": "Arguments for the setUserUseReserveAsCollateral function packed in one bytes32    239 bits         1 bit       16 bits | 0-padding | useAsCollateral | assetId |"
+					}
+				},
+				"supply(address,uint256,address,uint16)": {
+					"params": {
+						"amount": "The amount to be supplied",
+						"asset": "The address of the underlying asset to supply",
+						"onBehalfOf": "The address that will receive the aTokens, same as msg.sender if the user   wants to receive them on his own wallet, or a different address if the beneficiary of aTokens   is a different wallet",
+						"referralCode": "Code used to register the integrator originating the operation, for potential rewards.   0 if the action is executed directly by the user, without any middle-man"
+					}
+				},
+				"supply(bytes32)": {
+					"details": "the shortenedAmount is cast to 256 bits at decode time, if type(uint128).max the value will be expanded to type(uint256).maxassetId is the index of the asset in the reservesList.",
+					"params": {
+						"args": "Arguments for the supply function packed in one bytes32    96 bits       16 bits         128 bits      16 bits | 0-padding | referralCode | shortenedAmount | assetId |"
+					}
+				},
+				"supplyWithPermit(address,uint256,address,uint16,uint256,uint8,bytes32,bytes32)": {
+					"params": {
+						"amount": "The amount to be supplied",
+						"asset": "The address of the underlying asset to supply",
+						"deadline": "The deadline timestamp that the permit is valid",
+						"onBehalfOf": "The address that will receive the aTokens, same as msg.sender if the user   wants to receive them on his own wallet, or a different address if the beneficiary of aTokens   is a different wallet",
+						"permitR": "The R parameter of ERC712 permit sig",
+						"permitS": "The S parameter of ERC712 permit sig",
+						"permitV": "The V parameter of ERC712 permit sig",
+						"referralCode": "Code used to register the integrator originating the operation, for potential rewards.   0 if the action is executed directly by the user, without any middle-man"
+					}
+				},
+				"supplyWithPermit(bytes32,bytes32,bytes32)": {
+					"details": "the shortenedAmount is cast to 256 bits at decode time, if type(uint128).max the value will be expanded to type(uint256).maxassetId is the index of the asset in the reservesList.",
+					"params": {
+						"args": "Arguments for the supply function packed in one bytes32    56 bits    8 bits         32 bits           16 bits         128 bits      16 bits | 0-padding | permitV | shortenedDeadline | referralCode | shortenedAmount | assetId |",
+						"r": "The R parameter of ERC712 permit sig",
+						"s": "The S parameter of ERC712 permit sig"
+					}
+				},
+				"swapBorrowRateMode(address,uint256)": {
+					"params": {
+						"asset": "The address of the underlying asset borrowed",
+						"interestRateMode": "The current interest rate mode of the position being swapped: 1 for Stable, 2 for Variable"
+					}
+				},
+				"swapBorrowRateMode(bytes32)": {
+					"details": "assetId is the index of the asset in the reservesList.",
+					"params": {
+						"args": "Arguments for the swapBorrowRateMode function packed in one bytes32    232 bits            8 bits             16 bits | 0-padding | shortenedInterestRateMode | assetId |"
+					}
+				},
+				"updateBridgeProtocolFee(uint256)": {
+					"params": {
+						"bridgeProtocolFee": "The part of the premium sent to the protocol treasury"
+					}
+				},
+				"updateFlashloanPremiums(uint128,uint128)": {
+					"details": "The total premium is calculated on the total borrowed amountThe premium to protocol is calculated on the total premium, being a percentage of `flashLoanPremiumTotal`Only callable by the PoolConfigurator contract",
+					"params": {
+						"flashLoanPremiumToProtocol": "The part of the premium sent to the protocol treasury, expressed in bps",
+						"flashLoanPremiumTotal": "The total premium, expressed in bps"
+					}
+				},
+				"withdraw(address,uint256,address)": {
+					"params": {
+						"amount": "The underlying amount to be withdrawn   - Send the value type(uint256).max in order to withdraw the whole aToken balance",
+						"asset": "The address of the underlying asset to withdraw",
+						"to": "The address that will receive the underlying, same as msg.sender if the user   wants to receive it on his own wallet, or a different address if the beneficiary is a   different wallet"
+					},
+					"returns": {
+						"_0": "The final amount withdrawn"
+					}
+				},
+				"withdraw(bytes32)": {
+					"details": "the shortenedAmount is cast to 256 bits at decode time, if type(uint128).max the value will be expanded to type(uint256).maxassetId is the index of the asset in the reservesList.",
+					"params": {
+						"args": "Arguments for the withdraw function packed in one bytes32    112 bits       128 bits      16 bits | 0-padding | shortenedAmount | assetId |"
+					},
+					"returns": {
+						"_0": "The final amount withdrawn"
+					}
+				}
+			},
+			"title": "L2Pool",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"ADDRESSES_PROVIDER()": {
+					"notice": "Returns the PoolAddressesProvider connected to this contract"
+				},
+				"BRIDGE_PROTOCOL_FEE()": {
+					"notice": "Returns the part of the bridge fees sent to protocol"
+				},
+				"FLASHLOAN_PREMIUM_TOTAL()": {
+					"notice": "Returns the total fee on flash loans"
+				},
+				"FLASHLOAN_PREMIUM_TO_PROTOCOL()": {
+					"notice": "Returns the part of the flashloan fees sent to protocol"
+				},
+				"MAX_NUMBER_RESERVES()": {
+					"notice": "Returns the maximum number of reserves supported to be listed in this Pool"
+				},
+				"MAX_STABLE_RATE_BORROW_SIZE_PERCENT()": {
+					"notice": "Returns the percentage of available liquidity that can be borrowed at once at stable rate"
+				},
+				"backUnbacked(address,uint256,uint256)": {
+					"notice": "Back the current unbacked underlying with `amount` and pay `fee`."
+				},
+				"borrow(address,uint256,uint256,uint16,address)": {
+					"notice": "Allows users to borrow a specific `amount` of the reserve underlying asset, provided that the borrower already supplied enough collateral, or he was given enough allowance by a credit delegator on the corresponding debt token (StableDebtToken or VariableDebtToken) - E.g. User borrows 100 USDC passing as `onBehalfOf` his own address, receiving the 100 USDC in his wallet   and 100 stable/variable debt tokens, depending on the `interestRateMode`"
+				},
+				"borrow(bytes32)": {
+					"notice": "Calldata efficient wrapper of the borrow function, borrowing on behalf of the caller"
+				},
+				"configureEModeCategory(uint8,(uint16,uint16,uint16,address,string))": {
+					"notice": "Configures a new category for the eMode."
+				},
+				"deposit(address,uint256,address,uint16)": {
+					"notice": "Supplies an `amount` of underlying asset into the reserve, receiving in return overlying aTokens. - E.g. User supplies 100 USDC and gets in return 100 aUSDC"
+				},
+				"dropReserve(address)": {
+					"notice": "Drop a reserve"
+				},
+				"finalizeTransfer(address,address,address,uint256,uint256,uint256)": {
+					"notice": "Validates and finalizes an aToken transfer"
+				},
+				"flashLoan(address,address[],uint256[],uint256[],address,bytes,uint16)": {
+					"notice": "Allows smartcontracts to access the liquidity of the pool within one transaction, as long as the amount taken plus a fee is returned."
+				},
+				"flashLoanSimple(address,address,uint256,bytes,uint16)": {
+					"notice": "Allows smartcontracts to access the liquidity of the pool within one transaction, as long as the amount taken plus a fee is returned."
+				},
+				"getConfiguration(address)": {
+					"notice": "Returns the configuration of the reserve"
+				},
+				"getEModeCategoryData(uint8)": {
+					"notice": "Returns the data of an eMode category"
+				},
+				"getReserveAddressById(uint16)": {
+					"notice": "Returns the address of the underlying asset of a reserve by the reserve id as stored in the DataTypes.ReserveData struct"
+				},
+				"getReserveData(address)": {
+					"notice": "Returns the state and configuration of the reserve"
+				},
+				"getReserveNormalizedIncome(address)": {
+					"notice": "Returns the normalized income of the reserve"
+				},
+				"getReserveNormalizedVariableDebt(address)": {
+					"notice": "Returns the normalized variable debt per unit of asset"
+				},
+				"getReservesList()": {
+					"notice": "Returns the list of the underlying assets of all the initialized reserves"
+				},
+				"getUserAccountData(address)": {
+					"notice": "Returns the user account data across all the reserves"
+				},
+				"getUserConfiguration(address)": {
+					"notice": "Returns the configuration of the user across all the reserves"
+				},
+				"getUserEMode(address)": {
+					"notice": "Returns the eMode the user is using"
+				},
+				"initReserve(address,address,address,address,address)": {
+					"notice": "Initializes a reserve, activating it, assigning an aToken and debt tokens and an interest rate strategy"
+				},
+				"initialize(address)": {
+					"notice": "Initializes the Pool."
+				},
+				"liquidationCall(address,address,address,uint256,bool)": {
+					"notice": "Function to liquidate a non-healthy position collateral-wise, with Health Factor below 1 - The caller (liquidator) covers `debtToCover` amount of debt of the user getting liquidated, and receives   a proportionally amount of the `collateralAsset` plus a bonus to cover market risk"
+				},
+				"liquidationCall(bytes32,bytes32)": {
+					"notice": "Calldata efficient wrapper of the liquidationCall function"
+				},
+				"mintToTreasury(address[])": {
+					"notice": "Mints the assets accrued through the reserve factor to the treasury in the form of aTokens"
+				},
+				"mintUnbacked(address,uint256,address,uint16)": {
+					"notice": "Mints an `amount` of aTokens to the `onBehalfOf`"
+				},
+				"rebalanceStableBorrowRate(address,address)": {
+					"notice": "Rebalances the stable interest rate of a user to the current stable rate defined on the reserve. - Users can be rebalanced if the following conditions are satisfied:     1. Usage ratio is above 95%     2. the current supply APY is below REBALANCE_UP_THRESHOLD * maxVariableBorrowRate, which means that too        much has been borrowed at a stable rate and suppliers are not earning enough"
+				},
+				"rebalanceStableBorrowRate(bytes32)": {
+					"notice": "Calldata efficient wrapper of the rebalanceStableBorrowRate function"
+				},
+				"repay(address,uint256,uint256,address)": {
+					"notice": "Repays a borrowed `amount` on a specific reserve, burning the equivalent debt tokens owned - E.g. User repays 100 USDC, burning 100 variable/stable debt tokens of the `onBehalfOf` address"
+				},
+				"repay(bytes32)": {
+					"notice": "Calldata efficient wrapper of the repay function, repaying on behalf of the caller"
+				},
+				"repayWithATokens(address,uint256,uint256)": {
+					"notice": "Repays a borrowed `amount` on a specific reserve using the reserve aTokens, burning the equivalent debt tokens - E.g. User repays 100 USDC using 100 aUSDC, burning 100 variable/stable debt tokens"
+				},
+				"repayWithATokens(bytes32)": {
+					"notice": "Calldata efficient wrapper of the repayWithATokens function"
+				},
+				"repayWithPermit(address,uint256,uint256,address,uint256,uint8,bytes32,bytes32)": {
+					"notice": "Repay with transfer approval of asset to be repaid done via permit function see: https://eips.ethereum.org/EIPS/eip-2612 and https://eips.ethereum.org/EIPS/eip-713"
+				},
+				"repayWithPermit(bytes32,bytes32,bytes32)": {
+					"notice": "Calldata efficient wrapper of the repayWithPermit function, repaying on behalf of the caller"
+				},
+				"rescueTokens(address,address,uint256)": {
+					"notice": "Rescue and transfer tokens locked in this contract"
+				},
+				"resetIsolationModeTotalDebt(address)": {
+					"notice": "Resets the isolation mode total debt of the given asset to zero"
+				},
+				"setConfiguration(address,(uint256))": {
+					"notice": "Sets the configuration bitmap of the reserve as a whole"
+				},
+				"setReserveInterestRateStrategyAddress(address,address)": {
+					"notice": "Updates the address of the interest rate strategy contract"
+				},
+				"setUserEMode(uint8)": {
+					"notice": "Allows a user to use the protocol in eMode"
+				},
+				"setUserUseReserveAsCollateral(address,bool)": {
+					"notice": "Allows suppliers to enable/disable a specific supplied asset as collateral"
+				},
+				"setUserUseReserveAsCollateral(bytes32)": {
+					"notice": "Calldata efficient wrapper of the setUserUseReserveAsCollateral function"
+				},
+				"supply(address,uint256,address,uint16)": {
+					"notice": "Supplies an `amount` of underlying asset into the reserve, receiving in return overlying aTokens. - E.g. User supplies 100 USDC and gets in return 100 aUSDC"
+				},
+				"supply(bytes32)": {
+					"notice": "Calldata efficient wrapper of the supply function on behalf of the caller"
+				},
+				"supplyWithPermit(address,uint256,address,uint16,uint256,uint8,bytes32,bytes32)": {
+					"notice": "Supply with transfer approval of asset to be supplied done via permit function see: https://eips.ethereum.org/EIPS/eip-2612 and https://eips.ethereum.org/EIPS/eip-713"
+				},
+				"supplyWithPermit(bytes32,bytes32,bytes32)": {
+					"notice": "Calldata efficient wrapper of the supplyWithPermit function on behalf of the caller"
+				},
+				"swapBorrowRateMode(address,uint256)": {
+					"notice": "Allows a borrower to swap his debt between stable and variable mode, or vice versa"
+				},
+				"swapBorrowRateMode(bytes32)": {
+					"notice": "Calldata efficient wrapper of the swapBorrowRateMode function"
+				},
+				"updateBridgeProtocolFee(uint256)": {
+					"notice": "Updates the protocol fee on the bridging"
+				},
+				"updateFlashloanPremiums(uint128,uint128)": {
+					"notice": "Updates flash loan premiums. Flash loan premium consists of two parts: - A part is sent to aToken holders as extra, one time accumulated interest - A part is collected by the protocol treasury"
+				},
+				"withdraw(address,uint256,address)": {
+					"notice": "Withdraws an `amount` of underlying asset from the reserve, burning the equivalent aTokens owned E.g. User has 100 aUSDC, calls withdraw() and receives 100 USDC, burning the 100 aUSDC"
+				},
+				"withdraw(bytes32)": {
+					"notice": "Calldata efficient wrapper of the withdraw function, withdrawing to the caller"
+				}
+			},
+			"notice": "Calldata optimized extension of the Pool contract allowing users to pass compact calldata representation to reduce transaction costs on rollups.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/protocol/pool/L2Pool.sol": "L2Pool"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/dependencies/gnosis/contracts/GPv2SafeERC20.sol": {
+			"keccak256": "0xd47a42766ec7a2d6413451a0b6fdb2feabacb0fe38f1b0a6bdb1b968d650266a",
+			"license": "LGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://5fd3387511aa51681ee7b7c99a6d93c1fe3a6bdfe0bf818c7f4efcdc8894f325",
+				"dweb:/ipfs/QmQqB8uNCqL7Q8BfWz2GMXKDMmMZnakgG54Zfb1fDiRogA"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/Address.sol": {
+			"keccak256": "0xc9d51898843a36129e38e83a6ff67c4b4047b00e476f5c217476a6d27e7050ed",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ee4bb307b8c39203c271dfe5a6975af0aea960394fd07ddb6f873b39fb19838",
+				"dweb:/ipfs/QmcYX2PDWsmczMfsnENy7RfcuWU8gunvoP9Zpo6fpoFjrs"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/Context.sol": {
+			"keccak256": "0x58e76abc9cac3909e67c990d0b1f781a845cd294c0fc91a5b3b000510e2043bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e6c0a518ec3bf9aed12a90aabed9ffa16c5a3ab29be91b7ee826644d1fbdf8df",
+				"dweb:/ipfs/QmeG7iQ5aoXaDhisunyAQmHk3bvrcSLk278H2VbhSCB2Qb"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/IAccessControl.sol": {
+			"keccak256": "0xbeb5cda9d0c2da05baeae67d855b92a08ffa0991fbaca57d5201d2d80294722b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5ae57619b75c939267281cf16660112f3a9178908c4943c1ab57446cd72fdb6e",
+				"dweb:/ipfs/QmUffLabEQweCpEcTrbyp8keokjmd3xPdXw6mc5cc9i1W8"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0x07fe55e38757b195c884a8ede60deb8a1f6a85cc607e4e112a8c0004a9ebd448",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://dac71166c7a8cd1eef36ef868a41fbe8227c0de4fad7052b28657e4176af741f",
+				"dweb:/ipfs/QmSPRAVhBexaW12JXoXoz94apX25fSqxzgS2a1AYJPKamv"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol": {
+			"keccak256": "0x8fa3eef49754f897adaf2d2b578e494ce342992e255283f0327d049573f3cfb4",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://812381e07cfe547bf5a35a7eca8893c3e9fea8afb250f786c4e285e760eff36c",
+				"dweb:/ipfs/QmbnTHFZuU4wPbYzbLMcKxp8D6Qr33CVbcN3CJE9H4RUGs"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/SafeCast.sol": {
+			"keccak256": "0x9dc85595ff727e421497d6507db33360a47adf75fb17eee51680c4e60e4b0447",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d9d36860ed2d82fad841166231e24a2a67f7c82177b91bc8c75e36f801f527bb",
+				"dweb:/ipfs/QmSZhSNiR3kp5p8Eix4tMdw8sVQkGQJan7PtBhpCSLryex"
+			]
+		},
+		"contracts/flashloan/interfaces/IFlashLoanReceiver.sol": {
+			"keccak256": "0x86b3b344c6ebbf5936e03b46f78a4b5a839691c774b55992913971791e06c59d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://f61c4cfb88a8e977e242e6c11e807cdb8989282e115786720d2c45b966f62394",
+				"dweb:/ipfs/QmcTnyWMk174zZub6JrJb96s88B8wcanKw9co8VWPJoTZd"
+			]
+		},
+		"contracts/flashloan/interfaces/IFlashLoanSimpleReceiver.sol": {
+			"keccak256": "0xa708476930b78c899c6921e5954688a230ccb6a0b868bcdb84ba9aab5665db2a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://315f474494ab74142aacc680cb1c6320900ab55d85321657736a1f91a6ec43a3",
+				"dweb:/ipfs/QmSPvCzv43Fwj35h1VLzjdZWJMVfEmmsH6giC2AJHaMeiW"
+			]
+		},
+		"contracts/interfaces/IACLManager.sol": {
+			"keccak256": "0x518142961e1f7c74c9709585287a5dd698874a6db42f7155c2e6564e313888bb",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://115f1920f839c3cbf909631b543f2af8bbcc9aa34b2c7a333bb552740ea8fd7f",
+				"dweb:/ipfs/QmNsqxwBjhecXtrmALP8Cjpsf4PvyCn28EVNEW6vgzvhpN"
+			]
+		},
+		"contracts/interfaces/IAToken.sol": {
+			"keccak256": "0xbe0399dbab8e6072127b263307c4f398cd25cce65a3dae03770d9bac79f5d09d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://8a5f1d672643a63640ff904b7ba3a538ffc2a8cf636b1f78c0e188755bc039ea",
+				"dweb:/ipfs/QmUNdweZRiYYjTZVYYZouY96iJLUezthQLoA7Q4GgcedPq"
+			]
+		},
+		"contracts/interfaces/IAaveIncentivesController.sol": {
+			"keccak256": "0x1fa5b0b5e06c28c3e0e5c4052bd4448abb905cdfd2496a347d539093c5337ebf",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://561f0f9f057e8f800ed5730ff290363a343811ebab34511db727d2b91352ec78",
+				"dweb:/ipfs/QmYyhpvB5MDogyyUgy7ndrqkHQFtF5q5ZWtvranB6Tqc2q"
+			]
+		},
+		"contracts/interfaces/IERC20WithPermit.sol": {
+			"keccak256": "0x46f0db36e2bdeb7bed9ebc436b204af85b10eb4398b58cff26233be6077b093c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://01331c3f90267ae75f0cdf6721c475d5c7a2a593bdebb0cba25982eab4d25976",
+				"dweb:/ipfs/QmZmSHoq7GGAbmhutSR9fi9ety9XKziz7xacJFKzDkJ39S"
+			]
+		},
+		"contracts/interfaces/IInitializableAToken.sol": {
+			"keccak256": "0xe46893b672fc9f2132c418019758400890fef467deaac34e008801a56f52bde2",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://38c80009bb548e75e1be0cb20227bbc5660edd3a2910c5ac4beec8954b3685c9",
+				"dweb:/ipfs/QmPb6cw49mpAgm5Wg1TYsoUoo6ZPSW33U5TUYuCuawmVPm"
+			]
+		},
+		"contracts/interfaces/IInitializableDebtToken.sol": {
+			"keccak256": "0x78eb0003df3280b92abaa1773133f78cd8b8d634a9f72cedd60f5287e8dd60fc",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://5fb4811db7379f814cb906a7c204e023c07fd2aae4f4f45240b473dd9034f044",
+				"dweb:/ipfs/QmYFqAxCc5TQRt33MRYWuMYiEoNJnUDCkTC3dqRckjj9sQ"
+			]
+		},
+		"contracts/interfaces/IL2Pool.sol": {
+			"keccak256": "0x3534e568e0282db85767073b49639a2ff5e274306181754978a0f9ec67f4af96",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://64477ac88d5eac21a64ce9db4fca5ae41954321a31c9e29ea2feed26a2123025",
+				"dweb:/ipfs/QmZuCPgxsfpKGEqASTjRyfs7cwpe31BNKjdtJbMPNuZiak"
+			]
+		},
+		"contracts/interfaces/IPool.sol": {
+			"keccak256": "0x91fc8cafd9f6fda5046620662d57c5ab5f724375be08903114576216a4980629",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://87c472da79a61750b3cd010532de6092c6be145591f27ca5436850e9985cf3ae",
+				"dweb:/ipfs/QmSVysBKZUepgucokF4Av7i3PJQSj2RSpXKKfYaAcYkR6d"
+			]
+		},
+		"contracts/interfaces/IPoolAddressesProvider.sol": {
+			"keccak256": "0xf37b9fdb389d45783acfc16664c06f28af953d4a409d1059bdf10b917d41fd4a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb3c42a324ea0adf0095b1e3ea05df7edd70816cfd472e79a29a4fd5b196fa7b",
+				"dweb:/ipfs/QmcSYcH5NZc96EHqAp7sY5Gxvo1229gLnihyBfqme5EdGj"
+			]
+		},
+		"contracts/interfaces/IPriceOracleGetter.sol": {
+			"keccak256": "0xfda8ee40f53d3c0ca7a7d28a7773fe2ec52ce73d206c53103df935188da0064c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://6c318dd04b297f6a5a7333e7cbb641e38bca0107eddaa5d086a1ff521cc65476",
+				"dweb:/ipfs/QmfZYrSD8XbsEEfqxzfiZpR81WrBAzZcQsUnCqmfrCCje6"
+			]
+		},
+		"contracts/interfaces/IPriceOracleSentinel.sol": {
+			"keccak256": "0x8232715de9d19af290905965b9e5eb3acde6eaa869756425523ded6271ac5148",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://b9b2f7ed829e3abffe838e664cc622b6016213c8dbb854d828b8a558e2db2be1",
+				"dweb:/ipfs/QmPA1bVvp4EQ53xmU1gFHU9EmLsxropwedtHhUSCjuxFjt"
+			]
+		},
+		"contracts/interfaces/IReserveInterestRateStrategy.sol": {
+			"keccak256": "0x70d69671d225d8aecd556386728c2e172ef44ae24e2b718f333880f783983c7d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d1fcdbc5b88b5dae52d4e15199c8e9265287b31606f30c0a490757b79135d1c2",
+				"dweb:/ipfs/QmegRZoeNysazPJTyrcyzvbszgURJ7QGkb5DJ5hU75Sq4x"
+			]
+		},
+		"contracts/interfaces/IScaledBalanceToken.sol": {
+			"keccak256": "0xf811b6f5f28cb114bf0157f5c29e4f3b6916cd07a2d199e41a6e095bf10e9274",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://dfd126d6e02ccce04f58919686589c05eccf242d5bf4c270a612e7c46dc645c1",
+				"dweb:/ipfs/QmTSk6ojkAxRPVwUBKMWhtFAaJS1jLt48sK8dySxXFNxJW"
+			]
+		},
+		"contracts/interfaces/IStableDebtToken.sol": {
+			"keccak256": "0xbf28ffd735f8544c7911fc77537e003f4bb29e39ca26b644805e3f02411b390a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://cf0c215888a43c6850a73d513084be83e3eb31e22176ca502b895759d63eaaf1",
+				"dweb:/ipfs/QmZRYRjYhRdKYDR8r15jo8E5Km3kPxabFF7Ln2aS2Md1xY"
+			]
+		},
+		"contracts/interfaces/IVariableDebtToken.sol": {
+			"keccak256": "0xe8dc967f087955ad66fc6ea21bedff59e2ba5a39314a2c81f6428a4703a46984",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://c0d00437213235446a0037370166fb5ef6b864bfc5cd9809c498be3051e220d5",
+				"dweb:/ipfs/QmcT8UA4qm1zoU8bLkg583zfvmTnMoLqMdoyvmjnGPD2aU"
+			]
+		},
+		"contracts/protocol/libraries/aave-upgradeability/VersionedInitializable.sol": {
+			"keccak256": "0x5f85255cef8377443dddcd32b57a1693da484320829282f78e471cd106d7615c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://1cd759611a938fe9250d7ba819bbcce9b517b846c826f7e622db467500ba31ea",
+				"dweb:/ipfs/QmXuhheJQ1aDdRX65ZcEUyqAHSLDKk4RHFDEo7r2WHX1gt"
+			]
+		},
+		"contracts/protocol/libraries/configuration/ReserveConfiguration.sol": {
+			"keccak256": "0x011e03e774245a14152f29561ccc836317720a2b078b0fb6694f9c070d2a9e32",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://b5327be938d893acbdeb135b4c347d1c9b06bf70fdc16e7c2398652fb61c4ac4",
+				"dweb:/ipfs/QmaknTkQZXy46kbqv4JfV6VPssJ9ZPsja6irtJJLjBsRYh"
+			]
+		},
+		"contracts/protocol/libraries/configuration/UserConfiguration.sol": {
+			"keccak256": "0xcc4d1d3059f6d99f1796b08f5b14cc03b97e770fd222d4e4cf53035bde931722",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://0c42af9783f49d8e13982b403b76c65e7ffa39ad910f3ee1d138add2fea601ee",
+				"dweb:/ipfs/QmTQm1vk8AQT6x2m4rzZA1b8WF5KtnQoHyWBdrXqteaSTV"
+			]
+		},
+		"contracts/protocol/libraries/helpers/Errors.sol": {
+			"keccak256": "0xb6227b2cd999d01882dcfa20f489bf7b95d7428120253da7833c3361d2c8865d",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://e41c6e7c7ce1e5454602a590b07235e58684f15eef8fb80deb3b1017cff52516",
+				"dweb:/ipfs/QmYkjQHEqKTTZA9WpoXhevUtugDnLqxDdatkmkFxbihT5Z"
+			]
+		},
+		"contracts/protocol/libraries/helpers/Helpers.sol": {
+			"keccak256": "0x042665b03a9edb6acae820a7a22421aa0f3e2d988013d679ba33423bcc71aafb",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://af2f1e0a08484db4a3bd84ddfe5171d2b2ebdb2f7b4e614cf75a2ae4a28893e8",
+				"dweb:/ipfs/QmXtoQmvUULxQSqjaBnkSA6mZDSDEDSX1VmKdmtfYPfQtw"
+			]
+		},
+		"contracts/protocol/libraries/logic/BorrowLogic.sol": {
+			"keccak256": "0x58b40cba508333c4fa75091334cd464ae681829abb002baa5db437a9025495ec",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://60119d58ab06c03bf01f0cf7f2af4ce5662970a915bd61c368af4fa9f6a67487",
+				"dweb:/ipfs/QmV4cQQvcpxCR8nTw6YXFisB1XXdnxsNS1SWYoTpgxYBXR"
+			]
+		},
+		"contracts/protocol/libraries/logic/BridgeLogic.sol": {
+			"keccak256": "0x33cb868bf85e3831ebc851d7151bbfbb337f74175a2d3124ad52c03febbb2e87",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://00ad60b629a444372a536d9745f706b6e1054c8cc0b8cdb98dd4802bf8e02276",
+				"dweb:/ipfs/QmXeiq7E5KjwkEwziWfQa7raJ4U6QjUSmJ6zK2oqxDUYzs"
+			]
+		},
+		"contracts/protocol/libraries/logic/CalldataLogic.sol": {
+			"keccak256": "0xc43d0970ebcb437c08014f29d08cff3aa88d6e2c078420405d8223ab81377f71",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://651f0b2cebbbeb8fc56fbc387531b1ac599c606752c7703a792998c31e088aa4",
+				"dweb:/ipfs/QmVPCr4a5G7ckNfJdABq1BbbuSQV4DRCWiUSNeqd5fsvGB"
+			]
+		},
+		"contracts/protocol/libraries/logic/EModeLogic.sol": {
+			"keccak256": "0x068e8e8bf995b0f42d0ff919ca8a825c31e94f7e3ca3673915ba90c539636ea4",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://9edf660ca7600678e9b36a8455e05f7601fa6120fcf90c736dbd6a56aeccb714",
+				"dweb:/ipfs/QmXw1DCTkb3RbujkeEvGRxJd4k1XLmxGxuz9mjyDXbzDja"
+			]
+		},
+		"contracts/protocol/libraries/logic/FlashLoanLogic.sol": {
+			"keccak256": "0xae9a2007630498a1af4a901682634cbc5fab7591892ecdd00475c8ced3862307",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://784a9b6aeba069cfbf66cf76d1e1393cec6ad86bdd8a4f9b3bcb1dac8009dc68",
+				"dweb:/ipfs/QmPCzqXCGkwzrCqU7dyAcQf7FZo8TuDVequ7GFqWp7QZsF"
+			]
+		},
+		"contracts/protocol/libraries/logic/GenericLogic.sol": {
+			"keccak256": "0xc4d24652797de96b6e47a178cb7097ec470972edbff70204d716a30f92bed79b",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://4142003038b90db1ce7b80db66f61100e18fa29f25df7489bdf878658ca66945",
+				"dweb:/ipfs/QmewtSfU4EU2Vdih2JqMruVkyK9k9QAzstRJRv4XRj9vpg"
+			]
+		},
+		"contracts/protocol/libraries/logic/IsolationModeLogic.sol": {
+			"keccak256": "0x6e26034a1b5c65d24d0fab2f8573eb59969ada127b57d4b3727108705c6b07f6",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://13aebacb120dde5ce1f6ce12290d55516a14d0b52f0825a606c5e7eb568028b3",
+				"dweb:/ipfs/QmSY9P8RhaW5oP8F31wP3rdnt9frpg6kHhZh9TzaACv8LB"
+			]
+		},
+		"contracts/protocol/libraries/logic/LiquidationLogic.sol": {
+			"keccak256": "0x70d5f9e433775bc385aba9f513c810af4f13e5c640aacbbc80d36baa9bdccfe4",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://dba8bb45553bb9b8fa6aa89907e5206582e64380c1099248564bdb78d27201e0",
+				"dweb:/ipfs/QmRRozjfLWy7cFXTJVfHZAXFz5QMaP9wgZPxCWhW1PTmRK"
+			]
+		},
+		"contracts/protocol/libraries/logic/PoolLogic.sol": {
+			"keccak256": "0x0889959c5465d22eef7263537c06d1930abdfd3b725e98c675204ae2a60d74c0",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://16f9d8f47cbb24087e456925462912461d7aa0dceacff584c9a19d261d38b5bc",
+				"dweb:/ipfs/QmQy5LK3QUaznZ3Tkk4Zdrqyc3ZhvoegatmVaxmVncjxwY"
+			]
+		},
+		"contracts/protocol/libraries/logic/ReserveLogic.sol": {
+			"keccak256": "0x455eb98dc54318a3adca3976a32ee32daa6df33bbf43c54390bf09f434c894b1",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://162b8131ea58069123b924134979105852a40e7b9b15f54d6e4765394f1b7d6d",
+				"dweb:/ipfs/QmTFdSw1m3njrCAzrwCNMbMfPVagjvgVXH1BbN6kjnBEJm"
+			]
+		},
+		"contracts/protocol/libraries/logic/SupplyLogic.sol": {
+			"keccak256": "0xcb92ff5bb905aa7ca99b26b7f50ad83db4a20ef9f8883a1631fe325316b96df3",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://a1db6a89469babbd9d8710e652e5d368aae219779f23253ac0f26e3bc72af491",
+				"dweb:/ipfs/QmXtsSCLVCKtPLoQbbroLV2i8Vik5eb4aebf4xZRziwEPr"
+			]
+		},
+		"contracts/protocol/libraries/logic/ValidationLogic.sol": {
+			"keccak256": "0x283f4b132753697b7520b5e7d35f6111eefe4c4fdc0f13960fa68df446964062",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://c56395d6c6fb26d8f60976d7c353db25da06006fd15b1d21839f2af66e12ba00",
+				"dweb:/ipfs/QmULd7VyUMkLA2oUJQX4hQUfLL3hBMHFBSzmWDBgDxvDST"
+			]
+		},
+		"contracts/protocol/libraries/math/MathUtils.sol": {
+			"keccak256": "0x10306b802622f0e02ce1d7d3bdb113b61babc601a4d80ca26ef9a5a30a897d47",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://a37fab09bb175d5899bdaf7f32a13f155243303f9ab779454329b0fde3c5e0b6",
+				"dweb:/ipfs/QmRsReyjpiPoNk1Uivb2g1A5ZafmTXAf7KetNhibjuGXvd"
+			]
+		},
+		"contracts/protocol/libraries/math/PercentageMath.sol": {
+			"keccak256": "0x944f4990151b34bc0b5043712922e28adc10626e51e3d02e9569609f1caa5b93",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://7c4e655a3fa65ddc390c5a65def26fa44be869c3133ed23f26c7a04f804c86e2",
+				"dweb:/ipfs/QmfNjaMmqW2Zas5SGKku9DeRCLK3FrKfFFkhzPgNUwzySQ"
+			]
+		},
+		"contracts/protocol/libraries/math/WadRayMath.sol": {
+			"keccak256": "0x1fefec0fa31e0b2960c90dd1a637b69e5748fee962d3b5e6f2f6b0b5965a67b1",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://b1e926d9b5a4bc735ab024f78bdd25138e209977d28a49587f496cabfae077e4",
+				"dweb:/ipfs/QmUEYMevf8L7dcFF6CrLc5YKDvDVHdv5fwnXPHiRwbQEBX"
+			]
+		},
+		"contracts/protocol/libraries/types/DataTypes.sol": {
+			"keccak256": "0xf484b9e835d41d75d2ad32ea241e1cc859f278df49a8c4ceb2c0299036e577be",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://eafa12cff7ec168fd0e868ffee3931cc128c57bab003efbdb30e67e73d477fe3",
+				"dweb:/ipfs/QmU6nessQ7F1JLRbeYzZzgkh4E5mRdVh3YqLNN5nxGuUvb"
+			]
+		},
+		"contracts/protocol/pool/L2Pool.sol": {
+			"keccak256": "0x50797fbe516ab6935a9fc58339a07b88cfcf07cba0c97410544f6d2c72fc7500",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://cebf25286abd7fad86469ca95cdeb94047185894fecd82a54411a3319a8a51be",
+				"dweb:/ipfs/QmcnrgG98jWUdCSUiYvSYgwC8Yn5G3pArqHaaRUeSC9Fks"
+			]
+		},
+		"contracts/protocol/pool/Pool.sol": {
+			"keccak256": "0x4bc81c360527a7f8a28cbe87a063f66af038d5cd852792e1d25a901e38755720",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://a6985ce723d5448b1464559af678fffe76aa5b55cb44a2ef7702ff167fecc50d",
+				"dweb:/ipfs/Qmf4vnWo4xN6u2K4NYZ9qkKPNdVzaKiZ2rfr7nRnrawq3t"
+			]
+		},
+		"contracts/protocol/pool/PoolStorage.sol": {
+			"keccak256": "0xd7469d74fe1cfc9ee3570c5d02079376d4f58811feff8c38a6a68286e49231b5",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://444deafd25f8a85dd7520add9560448a95168fdd8287162829aa140441ebbada",
+				"dweb:/ipfs/QmXt4izPZ9pz9LvEgFLpZv5ex1gK9hddAZwcxAVpbnq4tw"
+			]
+		},
+		"contracts/protocol/tokenization/base/IncentivizedERC20.sol": {
+			"keccak256": "0x7301e97330aea6314ac52ee547774c0c6c2fbf28f79c3e6163a18551f57c4104",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://00a3071caef876afbd47803f55c150e8c194d36925d79c904a2d87b453c44014",
+				"dweb:/ipfs/QmXnZ5Q54BAJxR3AePaaXzJ5sxh251ubAk3YSgqiT71sDH"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,234 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collector",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IERC20",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collector",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IERC20",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave*",
+			"kind": "dev",
+			"methods": {
+				"approve(address,address,address,uint256)": {
+					"details": "Transfer an amount of tokens to the recipient.",
+					"params": {
+						"amount": "The amount to be transferred.",
+						"collector": "The address of the collector contract",
+						"recipient": "The address of the entity to transfer the tokens.",
+						"token": "The address of the asset"
+					}
+				},
+				"constructor": {
+					"details": "Constructor setups the ownership of the contract",
+					"params": {
+						"owner": "The address of the owner of the CollectorController"
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transfer(address,address,address,uint256)": {
+					"details": "Transfer an amount of tokens to the recipient.",
+					"params": {
+						"amount": "The amount to be transferred.",
+						"collector": "The address of the collector contract to retrieve funds from (e.g. Aave ecosystem reserve)",
+						"recipient": "The address of the entity to transfer the tokens.",
+						"token": "The address of the asset"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"title": "CollectorController",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "The CollectorController contracts allows the owner of the contract to approve or transfer tokens from the specified collector proxy contract. The admin of the Collector proxy can't be the same as the fundsAdmin address. This is needed due the usage of transparent proxy pattern.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/treasury/CollectorController.sol": "CollectorController"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/Context.sol": {
+			"keccak256": "0xc0df5ebb2c3d8b4509464c40a88cc51e5e5f5e4a26fafc909330e9bb2658f641",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dc2690f871399de8f14e4cd8ae9b57a67e135afa28ac4be76594eaf4ecd8e244",
+				"dweb:/ipfs/Qmb9gKAnQBciUknb3ysnfDpWAdYXGJm51NzFYWNkXwoAZg"
+			]
+		},
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0xf57d62241e553696a1324d225663ba2e1a51db0a51ca236d0c1b009d89b6284c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d327db93b636790909aa137124f30a856ac1631cb79c476aa188f9627fda8d03",
+				"dweb:/ipfs/QmaxpmEoBFioeNYmpxJemyZ7aYF2nX1NKW1XDqREm7i6es"
+			]
+		},
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/Ownable.sol": {
+			"keccak256": "0x3ce185c4f579e32006f8893dbfdc1b5d878c0e2cafd1508f7ceb081698bc81f9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://de40129c2380570ce2e883210452f0dc0913788e66be6690084be3d9f8def73f",
+				"dweb:/ipfs/QmVAEtQHTYDPheoDniWaVNyRcWwfu3ccmUCxFXuzxHEwFT"
+			]
+		},
+		"contracts/treasury/CollectorController.sol": {
+			"keccak256": "0x198fb07757e55a7427b9b3eee4fdb817fd824f60a510b34514257020f24929c0",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://606db2c5cc464b3dc7ec2ec423b2b6fed0ce37fd2e90960b596f816eb7f87d8c",
+				"dweb:/ipfs/QmeTLs7DptadspnW2r82J4YcRbPUKa9xiWGuZgAXZ2dAPa"
+			]
+		},
+		"contracts/treasury/interfaces/ICollector.sol": {
+			"keccak256": "0x8a9f70393c869e32cfcd7762b4716aa37bc7051511c62a2110b0a90526d6599a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://2a337e6275edd2a00e01d856669b1b72705e39d5d8e3323e2d8f8c1bea4597f2",
+				"dweb:/ipfs/QmSC41Ev28S6YQgkiNwdaaPbiz5vZrLzPirYfVe28UHMgD"
+			]
+		}
+	},
+	"version": 1
+}

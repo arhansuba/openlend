@@ -1,0 +1,517 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oldAdmin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "EmissionAdminUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint88",
+								"name": "emissionPerSecond",
+								"type": "uint88"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalSupply",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint32",
+								"name": "distributionEnd",
+								"type": "uint32"
+							},
+							{
+								"internalType": "address",
+								"name": "asset",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "reward",
+								"type": "address"
+							},
+							{
+								"internalType": "contract ITransferStrategyBase",
+								"name": "transferStrategy",
+								"type": "address"
+							},
+							{
+								"internalType": "contract IEACAggregatorProxy",
+								"name": "rewardOracle",
+								"type": "address"
+							}
+						],
+						"internalType": "struct RewardsDataTypes.RewardsConfigInput[]",
+						"name": "config",
+						"type": "tuple[]"
+					}
+				],
+				"name": "configureAssets",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					}
+				],
+				"name": "getEmissionAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRewardsController",
+				"outputs": [
+					{
+						"internalType": "contract IRewardsController",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "claimer",
+						"type": "address"
+					}
+				],
+				"name": "setClaimer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "newDistributionEnd",
+						"type": "uint32"
+					}
+				],
+				"name": "setDistributionEnd",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					}
+				],
+				"name": "setEmissionAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address[]",
+						"name": "rewards",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint88[]",
+						"name": "newEmissionsPerSecond",
+						"type": "uint88[]"
+					}
+				],
+				"name": "setEmissionPerSecond",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IEACAggregatorProxy",
+						"name": "rewardOracle",
+						"type": "address"
+					}
+				],
+				"name": "setRewardOracle",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "controller",
+						"type": "address"
+					}
+				],
+				"name": "setRewardsController",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					},
+					{
+						"internalType": "contract ITransferStrategyBase",
+						"name": "transferStrategy",
+						"type": "address"
+					}
+				],
+				"name": "setTransferStrategy",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave",
+			"events": {
+				"EmissionAdminUpdated(address,address,address)": {
+					"details": "Emitted when the admin of a reward emission is updated.",
+					"params": {
+						"newAdmin": "The address of the new emission admin",
+						"oldAdmin": "The address of the old emission admin",
+						"reward": "The address of the rewarding token"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"configureAssets((uint88,uint256,uint32,address,address,address,address)[])": {
+					"details": "Configure assets to incentivize with an emission of rewards per second until the end of distribution.Only callable by the emission admin of the given rewards",
+					"params": {
+						"config": "The assets configuration input, the list of structs contains the following fields:   uint104 emissionPerSecond: The emission per second following rewards unit decimals.   uint256 totalSupply: The total supply of the asset to incentivize   uint40 distributionEnd: The end of the distribution of the incentives for an asset   address asset: The asset address to incentivize   address reward: The reward token address   ITransferStrategy transferStrategy: The TransferStrategy address with the install hook and claim logic.   IEACAggregatorProxy rewardOracle: The Price Oracle of a reward to visualize the incentives at the UI Frontend.                                     Must follow Chainlink Aggregator IEACAggregatorProxy interface to be compatible."
+					}
+				},
+				"constructor": {
+					"params": {
+						"owner": "The address of the owner"
+					}
+				},
+				"getEmissionAdmin(address)": {
+					"details": "Returns the admin of the given reward emission",
+					"params": {
+						"reward": "The address of the reward token"
+					},
+					"returns": {
+						"_0": "The address of the emission admin"
+					}
+				},
+				"getRewardsController()": {
+					"details": "Returns the rewards controller address",
+					"returns": {
+						"_0": "The address of the RewardsController contract"
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"setClaimer(address,address)": {
+					"details": "Whitelists an address to claim the rewards on behalf of another addressOnly callable by the owner of the EmissionManager",
+					"params": {
+						"claimer": "The address of the claimer",
+						"user": "The address of the user"
+					}
+				},
+				"setDistributionEnd(address,address,uint32)": {
+					"details": "Sets the end date for the distributionOnly callable by the emission admin of the given reward",
+					"params": {
+						"asset": "The asset to incentivize",
+						"newDistributionEnd": "The end date of the incentivization, in unix time format*",
+						"reward": "The reward token that incentives the asset"
+					}
+				},
+				"setEmissionAdmin(address,address)": {
+					"details": "Updates the admin of the reward emissionOnly callable by the owner of the EmissionManager",
+					"params": {
+						"admin": "The address of the new admin of the emission",
+						"reward": "The address of the reward token"
+					}
+				},
+				"setEmissionPerSecond(address,address[],uint88[])": {
+					"details": "Sets the emission per second of a set of reward distributions",
+					"params": {
+						"asset": "The asset is being incentivized",
+						"newEmissionsPerSecond": "List of new reward emissions per second",
+						"rewards": "List of reward addresses are being distributed"
+					}
+				},
+				"setRewardOracle(address,address)": {
+					"details": "Sets an Aave Oracle contract to enforce rewards with a source of value.Only callable by the emission admin of the given reward",
+					"params": {
+						"reward": "The address of the reward to set the price aggregator",
+						"rewardOracle": "The address of price aggregator that follows IEACAggregatorProxy interface"
+					}
+				},
+				"setRewardsController(address)": {
+					"details": "Updates the address of the rewards controllerOnly callable by the owner of the EmissionManager",
+					"params": {
+						"controller": "the address of the RewardsController contract"
+					}
+				},
+				"setTransferStrategy(address,address)": {
+					"details": "Sets a TransferStrategy logic contract that determines the logic of the rewards transferOnly callable by the emission admin of the given reward",
+					"params": {
+						"reward": "The address of the reward token",
+						"transferStrategy": "The address of the TransferStrategy logic contract"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"title": "EmissionManager",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"constructor": {
+					"notice": "Constructor."
+				},
+				"setRewardOracle(address,address)": {
+					"notice": "At the moment of reward configuration, the Incentives Controller performs a check to see if the reward asset oracle is compatible with IEACAggregator proxy. This check is enforced for integrators to be able to show incentives at the current Aave UI without the need to setup an external price registry"
+				}
+			},
+			"notice": "It manages the list of admins of reward emissions and provides functions to control reward emissions.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/rewards/EmissionManager.sol": "EmissionManager"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/Context.sol": {
+			"keccak256": "0xc0df5ebb2c3d8b4509464c40a88cc51e5e5f5e4a26fafc909330e9bb2658f641",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dc2690f871399de8f14e4cd8ae9b57a67e135afa28ac4be76594eaf4ecd8e244",
+				"dweb:/ipfs/Qmb9gKAnQBciUknb3ysnfDpWAdYXGJm51NzFYWNkXwoAZg"
+			]
+		},
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/Ownable.sol": {
+			"keccak256": "0x3ce185c4f579e32006f8893dbfdc1b5d878c0e2cafd1508f7ceb081698bc81f9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://de40129c2380570ce2e883210452f0dc0913788e66be6690084be3d9f8def73f",
+				"dweb:/ipfs/QmVAEtQHTYDPheoDniWaVNyRcWwfu3ccmUCxFXuzxHEwFT"
+			]
+		},
+		"contracts/misc/interfaces/IEACAggregatorProxy.sol": {
+			"keccak256": "0x637d15b86eae9f1e00697bf9aca057e9aee13968055c74fbca955ea52f7f682e",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://2ccbf668f63fa23f903abaaba8e8196e4847b82d1b8b076a6a147299c104a375",
+				"dweb:/ipfs/QmXvgciSMm1ByuAZi9bN2ZRm52UtC2BGqLo8gXsUHA6Zns"
+			]
+		},
+		"contracts/rewards/EmissionManager.sol": {
+			"keccak256": "0x6ccb9c163d3563cd824091c32c9791aa1ac5400efad9bfb14e06b90e3391c893",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://a1e0df5b251401e73eb46e9f32454b1b9364b93322b946fa1a1de15dcd77f928",
+				"dweb:/ipfs/QmZ6NS8R8w232NKwAkpNmNzeGYsuFWjSUw81qaFAwHF6ux"
+			]
+		},
+		"contracts/rewards/interfaces/IEmissionManager.sol": {
+			"keccak256": "0xd21aff9723f33fafe589bd17df8b0f1103c0e0a18d109a59006c515bd34f1ce4",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://7a1ef235e70d97c7fb5f822f5fb403f24377410c8f43b423487a63f6c4db1ba2",
+				"dweb:/ipfs/QmdU2yeATbPVVx3Xjv4onnQhx5gqVcj3iHEQUzEYXAccph"
+			]
+		},
+		"contracts/rewards/interfaces/IRewardsController.sol": {
+			"keccak256": "0x125878a33e126f7c3363036191fcf55c20e38895a64fda01ea03c032d27ca7b6",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://0c6d5297a8dbd801d2b3dc12f4bb3b1e53ff4492126b2db8382a33e935fea283",
+				"dweb:/ipfs/QmYbWb2Xj9NpLviepQGSHdz7bH6XioXaVvc9r48onyEtdU"
+			]
+		},
+		"contracts/rewards/interfaces/IRewardsDistributor.sol": {
+			"keccak256": "0x19256503a45c81beeb649aa1ed048739e7831a55f35bff4e459d5f7c1d544233",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://12570e8d56bda01b8681de19e18dfeea7b4422f01ca33ddddb97e0bca42d3733",
+				"dweb:/ipfs/QmcP18235kisLnv4TdFu6R6ZtCHBd4g2mAdUkADhT7XM64"
+			]
+		},
+		"contracts/rewards/interfaces/ITransferStrategyBase.sol": {
+			"keccak256": "0x06217cc5297b238a5a11f666de608edb4f113593ad8be24db6eefa97e6e6346d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d80b6f9a5fdfe18e9e1b7b96fd795bb070cd4228e8590d9e7692b87972ab669b",
+				"dweb:/ipfs/QmQM9MzVkfEjFznBa5p6vvbvmUpnntPSnTfwsa9fQwsTKc"
+			]
+		},
+		"contracts/rewards/libraries/RewardsDataTypes.sol": {
+			"keccak256": "0x653fa346267b50bd80c47e23653f4839f5c4b32d903ecebd05593f3b2ac9f61c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://b2fcf951a2fcbac37fbb6a73fd09356317102102f267eaa789c4a83bce35d64e",
+				"dweb:/ipfs/QmRQzpFYoMUbfxYzXCSgh4QqU5e8wvjRyqAm6NXj99qZUd"
+			]
+		}
+	},
+	"version": 1
+}

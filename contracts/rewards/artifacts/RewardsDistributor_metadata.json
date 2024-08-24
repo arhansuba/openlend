@@ -1,0 +1,689 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "assetIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "userIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "rewardsAccrued",
+						"type": "uint256"
+					}
+				],
+				"name": "Accrued",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldEmission",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newEmission",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldDistributionEnd",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newDistributionEnd",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "assetIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "AssetConfigUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "EMISSION_MANAGER",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "assets",
+						"type": "address[]"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getAllUserRewards",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "rewardsList",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "unclaimedAmounts",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					}
+				],
+				"name": "getAssetDecimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					}
+				],
+				"name": "getAssetIndex",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					}
+				],
+				"name": "getDistributionEnd",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getEmissionManager",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					}
+				],
+				"name": "getRewardsByAsset",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					}
+				],
+				"name": "getRewardsData",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRewardsList",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					}
+				],
+				"name": "getUserAccruedRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					}
+				],
+				"name": "getUserAssetIndex",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "assets",
+						"type": "address[]"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					}
+				],
+				"name": "getUserRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "reward",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "newDistributionEnd",
+						"type": "uint32"
+					}
+				],
+				"name": "setDistributionEnd",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address[]",
+						"name": "rewards",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint88[]",
+						"name": "newEmissionsPerSecond",
+						"type": "uint88[]"
+					}
+				],
+				"name": "setEmissionPerSecond",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave*",
+			"events": {
+				"Accrued(address,address,address,uint256,uint256,uint256)": {
+					"details": "Emitted when rewards of an asset are accrued on behalf of a user.",
+					"params": {
+						"asset": "The address of the incentivized asset",
+						"assetIndex": "The index of the asset distribution",
+						"reward": "The address of the reward token",
+						"rewardsAccrued": "The amount of rewards accrued",
+						"user": "The address of the user that rewards are accrued on behalf of",
+						"userIndex": "The index of the asset distribution on behalf of the user"
+					}
+				},
+				"AssetConfigUpdated(address,address,uint256,uint256,uint256,uint256,uint256)": {
+					"details": "Emitted when the configuration of the rewards of an asset is updated.",
+					"params": {
+						"asset": "The address of the incentivized asset",
+						"assetIndex": "The index of the asset distribution",
+						"newDistributionEnd": "The new end timestamp of the reward distribution",
+						"newEmission": "The new emissions per second value of the reward distribution",
+						"oldDistributionEnd": "The old end timestamp of the reward distribution",
+						"oldEmission": "The old emissions per second value of the reward distribution",
+						"reward": "The address of the reward token"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"getAllUserRewards(address[],address)": {
+					"details": "Returns a list all rewards of a user, including already accrued and unrealized claimable rewards",
+					"params": {
+						"assets": "List of incentivized assets to check eligible distributions",
+						"user": "The address of the user"
+					},
+					"returns": {
+						"rewardsList": "The list of reward addresses",
+						"unclaimedAmounts": "The list of unclaimed amount of rewards*"
+					}
+				},
+				"getAssetDecimals(address)": {
+					"details": "Returns the decimals of an asset to calculate the distribution delta",
+					"params": {
+						"asset": "The address to retrieve decimals"
+					},
+					"returns": {
+						"_0": "The decimals of an underlying asset"
+					}
+				},
+				"getAssetIndex(address,address)": {
+					"details": "Calculates the next value of an specific distribution index, with validations.",
+					"params": {
+						"asset": "The incentivized asset",
+						"reward": "The reward token of the incentivized asset"
+					},
+					"returns": {
+						"_0": "The old index of the asset distribution",
+						"_1": "The new index of the asset distribution*"
+					}
+				},
+				"getDistributionEnd(address,address)": {
+					"details": "Gets the end date for the distribution",
+					"params": {
+						"asset": "The incentivized asset",
+						"reward": "The reward token of the incentivized asset"
+					},
+					"returns": {
+						"_0": "The timestamp with the end of the distribution, in unix time format*"
+					}
+				},
+				"getEmissionManager()": {
+					"details": "Returns the address of the emission manager. Deprecated: This getter is maintained for compatibility purposes. Use the `EMISSION_MANAGER()` function instead.",
+					"returns": {
+						"_0": "The address of the EmissionManager"
+					}
+				},
+				"getRewardsByAsset(address)": {
+					"details": "Returns the list of available reward token addresses of an incentivized asset",
+					"params": {
+						"asset": "The incentivized asset"
+					},
+					"returns": {
+						"_0": "List of rewards addresses of the input asset*"
+					}
+				},
+				"getRewardsData(address,address)": {
+					"details": "Returns the configuration of the distribution reward for a certain asset",
+					"params": {
+						"asset": "The incentivized asset",
+						"reward": "The reward token of the incentivized asset"
+					},
+					"returns": {
+						"_0": "The index of the asset distribution",
+						"_1": "The emission per second of the reward distribution",
+						"_2": "The timestamp of the last update of the index",
+						"_3": "The timestamp of the distribution end*"
+					}
+				},
+				"getRewardsList()": {
+					"details": "Returns the list of available reward addresses",
+					"returns": {
+						"_0": "List of rewards supported in this contract*"
+					}
+				},
+				"getUserAccruedRewards(address,address)": {
+					"details": "Returns the accrued rewards balance of a user, not including virtually accrued rewards since last distribution.",
+					"params": {
+						"reward": "The address of the reward token",
+						"user": "The address of the user"
+					},
+					"returns": {
+						"_0": "Unclaimed rewards, not including new distributions*"
+					}
+				},
+				"getUserAssetIndex(address,address,address)": {
+					"details": "Returns the index of a user on a reward distribution",
+					"params": {
+						"asset": "The incentivized asset",
+						"reward": "The reward token of the incentivized asset",
+						"user": "Address of the user"
+					},
+					"returns": {
+						"_0": "The current user asset index, not including new distributions*"
+					}
+				},
+				"getUserRewards(address[],address,address)": {
+					"details": "Returns a single rewards balance of a user, including virtually accrued and unrealized claimable rewards.",
+					"params": {
+						"assets": "List of incentivized assets to check eligible distributions",
+						"reward": "The address of the reward token",
+						"user": "The address of the user"
+					},
+					"returns": {
+						"_0": "The rewards amount*"
+					}
+				},
+				"setDistributionEnd(address,address,uint32)": {
+					"details": "Sets the end date for the distribution",
+					"params": {
+						"asset": "The asset to incentivize",
+						"newDistributionEnd": "The end date of the incentivization, in unix time format*",
+						"reward": "The reward token that incentives the asset"
+					}
+				},
+				"setEmissionPerSecond(address,address[],uint88[])": {
+					"details": "Sets the emission per second of a set of reward distributions",
+					"params": {
+						"asset": "The asset is being incentivized",
+						"newEmissionsPerSecond": "List of new reward emissions per second",
+						"rewards": "List of reward addresses are being distributed"
+					}
+				}
+			},
+			"stateVariables": {
+				"EMISSION_MANAGER": {
+					"details": "Returns the address of the emission manager",
+					"return": "The address of the EmissionManager",
+					"returns": {
+						"_0": "The address of the EmissionManager"
+					}
+				}
+			},
+			"title": "RewardsDistributor",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Accounting contract to manage multiple staking distributions with multiple rewards",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/rewards/RewardsDistributor.sol": "RewardsDistributor"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0xf57d62241e553696a1324d225663ba2e1a51db0a51ca236d0c1b009d89b6284c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d327db93b636790909aa137124f30a856ac1631cb79c476aa188f9627fda8d03",
+				"dweb:/ipfs/QmaxpmEoBFioeNYmpxJemyZ7aYF2nX1NKW1XDqREm7i6es"
+			]
+		},
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol": {
+			"keccak256": "0x9365cd885dc1ed7aed1364ae4dedf8e4660100cba0437061013f64c5002b385a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://ddc639d67c82e15f76b08588e8ad2ee87eaff6bb9cba5c0e5b08e242c3c4ac00",
+				"dweb:/ipfs/QmY1D9WcH3nmg2VVfqSUkEX6Zrkmkmx8oi2pJAvw5BABi7"
+			]
+		},
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/SafeCast.sol": {
+			"keccak256": "0x36824ad8ec8a12aa21938a05f971e21d23c7e84ae3b3a19b0643c5ebb873166e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4cf1652c12eb8727a9c039cbfa4be91aeff36d373f66301fc009d62816d4adbd",
+				"dweb:/ipfs/QmX8QsPDKmEp6HohCwWo1yAmkc18btXaPCoTc4Wc4ZqPhL"
+			]
+		},
+		"@aave/core-v3/contracts/interfaces/IScaledBalanceToken.sol": {
+			"keccak256": "0x72b3ea433cd3386f369f1643a154bf233ec60c02acd02c32088a97556207d2e4",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://a5907c61cf65126001feebd94c7a869eff95045106d97e21bf7f0d3de22caf9d",
+				"dweb:/ipfs/QmPARkA7YpsBtd1F3JgszZREJk6TAkqRLBkjWZUadCu3sM"
+			]
+		},
+		"contracts/misc/interfaces/IEACAggregatorProxy.sol": {
+			"keccak256": "0x637d15b86eae9f1e00697bf9aca057e9aee13968055c74fbca955ea52f7f682e",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://2ccbf668f63fa23f903abaaba8e8196e4847b82d1b8b076a6a147299c104a375",
+				"dweb:/ipfs/QmXvgciSMm1ByuAZi9bN2ZRm52UtC2BGqLo8gXsUHA6Zns"
+			]
+		},
+		"contracts/rewards/RewardsDistributor.sol": {
+			"keccak256": "0x8c9751a178fbfd53460ef83f5cd571e1f4ca4df973dfbfb05d658df70f04f074",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://6a644cef7d5b096ecd93e7884e246a88dcc061d8b76ec9f8b03e9d70688593bf",
+				"dweb:/ipfs/QmWDi39oXLDy9rSP8mPUEGwv7aToc7J2sTMmCXfkpS24Eu"
+			]
+		},
+		"contracts/rewards/interfaces/IRewardsDistributor.sol": {
+			"keccak256": "0x19256503a45c81beeb649aa1ed048739e7831a55f35bff4e459d5f7c1d544233",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://12570e8d56bda01b8681de19e18dfeea7b4422f01ca33ddddb97e0bca42d3733",
+				"dweb:/ipfs/QmcP18235kisLnv4TdFu6R6ZtCHBd4g2mAdUkADhT7XM64"
+			]
+		},
+		"contracts/rewards/interfaces/ITransferStrategyBase.sol": {
+			"keccak256": "0x06217cc5297b238a5a11f666de608edb4f113593ad8be24db6eefa97e6e6346d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d80b6f9a5fdfe18e9e1b7b96fd795bb070cd4228e8590d9e7692b87972ab669b",
+				"dweb:/ipfs/QmQM9MzVkfEjFznBa5p6vvbvmUpnntPSnTfwsa9fQwsTKc"
+			]
+		},
+		"contracts/rewards/libraries/RewardsDataTypes.sol": {
+			"keccak256": "0x653fa346267b50bd80c47e23653f4839f5c4b32d903ecebd05593f3b2ac9f61c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://b2fcf951a2fcbac37fbb6a73fd09356317102102f267eaa789c4a83bce35d64e",
+				"dweb:/ipfs/QmRQzpFYoMUbfxYzXCSgh4QqU5e8wvjRyqAm6NXj99qZUd"
+			]
+		}
+	},
+	"version": 1
+}

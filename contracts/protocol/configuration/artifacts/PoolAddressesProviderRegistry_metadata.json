@@ -1,0 +1,346 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addressesProvider",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "AddressesProviderRegistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addressesProvider",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "AddressesProviderUnregistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "getAddressesProviderAddressById",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "addressesProvider",
+						"type": "address"
+					}
+				],
+				"name": "getAddressesProviderIdByAddress",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAddressesProvidersList",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "provider",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "registerAddressesProvider",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "provider",
+						"type": "address"
+					}
+				],
+				"name": "unregisterAddressesProvider",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave",
+			"details": "Used for indexing purposes of Aave protocol's markets. The id assigned to a PoolAddressesProvider refers to the market it is connected with, for example with `1` for the Aave main market and `2` for the next created.",
+			"events": {
+				"AddressesProviderRegistered(address,uint256)": {
+					"details": "Emitted when a new AddressesProvider is registered.",
+					"params": {
+						"addressesProvider": "The address of the registered PoolAddressesProvider",
+						"id": "The id of the registered PoolAddressesProvider"
+					}
+				},
+				"AddressesProviderUnregistered(address,uint256)": {
+					"details": "Emitted when an AddressesProvider is unregistered.",
+					"params": {
+						"addressesProvider": "The address of the unregistered PoolAddressesProvider",
+						"id": "The id of the unregistered PoolAddressesProvider"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"details": "Constructor.",
+					"params": {
+						"owner": "The owner address of this contract."
+					}
+				},
+				"getAddressesProviderAddressById(uint256)": {
+					"params": {
+						"id": "The id of the market"
+					},
+					"returns": {
+						"_0": "The address of the PoolAddressesProvider with the given id or zero address if it is not registered"
+					}
+				},
+				"getAddressesProviderIdByAddress(address)": {
+					"params": {
+						"addressesProvider": "The address of the PoolAddressesProvider"
+					},
+					"returns": {
+						"_0": "The id of the PoolAddressesProvider or 0 if is not registered"
+					}
+				},
+				"getAddressesProvidersList()": {
+					"returns": {
+						"_0": "The list of addresses providers"
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"registerAddressesProvider(address,uint256)": {
+					"details": "The PoolAddressesProvider must not already be registered in the registryThe id must not be used by an already registered PoolAddressesProvider",
+					"params": {
+						"id": "The id for the new PoolAddressesProvider, referring to the market it belongs to",
+						"provider": "The address of the new PoolAddressesProvider"
+					}
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"unregisterAddressesProvider(address)": {
+					"params": {
+						"provider": "The PoolAddressesProvider address"
+					}
+				}
+			},
+			"title": "PoolAddressesProviderRegistry",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"getAddressesProviderAddressById(uint256)": {
+					"notice": "Returns the address of a registered PoolAddressesProvider"
+				},
+				"getAddressesProviderIdByAddress(address)": {
+					"notice": "Returns the id of a registered PoolAddressesProvider"
+				},
+				"getAddressesProvidersList()": {
+					"notice": "Returns the list of registered addresses providers"
+				},
+				"registerAddressesProvider(address,uint256)": {
+					"notice": "Registers an addresses provider"
+				},
+				"unregisterAddressesProvider(address)": {
+					"notice": "Removes an addresses provider from the list of registered addresses providers"
+				}
+			},
+			"notice": "Main registry of PoolAddressesProvider of Aave markets.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/protocol/configuration/PoolAddressesProviderRegistry.sol": "PoolAddressesProviderRegistry"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/dependencies/openzeppelin/contracts/Context.sol": {
+			"keccak256": "0x58e76abc9cac3909e67c990d0b1f781a845cd294c0fc91a5b3b000510e2043bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e6c0a518ec3bf9aed12a90aabed9ffa16c5a3ab29be91b7ee826644d1fbdf8df",
+				"dweb:/ipfs/QmeG7iQ5aoXaDhisunyAQmHk3bvrcSLk278H2VbhSCB2Qb"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/Ownable.sol": {
+			"keccak256": "0xac1c6c6375d3eb342bb747f761286a5422d21f8fdd79deca503f64f2464558d6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b04fb88464c16c29a0427af22229def84092e90da3a47afb7b19c63d6def21bb",
+				"dweb:/ipfs/QmTG1eLYgNPewUmJgtVS62ahDLHttPoKMMnXfpGdQUtLRG"
+			]
+		},
+		"contracts/interfaces/IPoolAddressesProviderRegistry.sol": {
+			"keccak256": "0x374add6fa6fa3fe77a91b300308432d78d3c33b2eccdbe62555bd32f57ad303f",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://f12b83c4bc04ab40195694252cd3771622397199627cea945cca579f524f6095",
+				"dweb:/ipfs/QmVq93Wd3XVuGrSs2wPm5iwvHmxYoj7px2GiirpWr7D2Xu"
+			]
+		},
+		"contracts/protocol/configuration/PoolAddressesProviderRegistry.sol": {
+			"keccak256": "0x14f8bba2517ae52471482aa4ee5fb15e1079b0ea2fc404be140d6a5c93f0c19e",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://cccc3a8dc12bc46546e173a24aead628e456a4ef38769b4f06b7c141e7401d00",
+				"dweb:/ipfs/Qmb2PU8dhLtgcGFy5Eksm6mXaA2xH7z84eNPnxtKhjNLKT"
+			]
+		},
+		"contracts/protocol/libraries/helpers/Errors.sol": {
+			"keccak256": "0xb6227b2cd999d01882dcfa20f489bf7b95d7428120253da7833c3361d2c8865d",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://e41c6e7c7ce1e5454602a590b07235e58684f15eef8fb80deb3b1017cff52516",
+				"dweb:/ipfs/QmYkjQHEqKTTZA9WpoXhevUtugDnLqxDdatkmkFxbihT5Z"
+			]
+		}
+	},
+	"version": 1
+}

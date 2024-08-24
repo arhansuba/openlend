@@ -1,0 +1,637 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "streamId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "senderBalance",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "recipientBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "CancelStream",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "streamId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "deposit",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stopTime",
+						"type": "uint256"
+					}
+				],
+				"name": "CreateStream",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "fundsAdmin",
+						"type": "address"
+					}
+				],
+				"name": "NewFundsAdmin",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "streamId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "WithdrawFromStream",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ETH_MOCK_ADDRESS",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "REVISION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "streamId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "streamId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelStream",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deposit",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stopTime",
+						"type": "uint256"
+					}
+				],
+				"name": "createStream",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "streamId",
+						"type": "uint256"
+					}
+				],
+				"name": "deltaOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "delta",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getFundsAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNextStreamId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "streamId",
+						"type": "uint256"
+					}
+				],
+				"name": "getStream",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deposit",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stopTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "remainingBalance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ratePerSecond",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "fundsAdmin",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "streamId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawFromStream",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"author": "BGD Labs*",
+			"events": {
+				"NewFundsAdmin(address)": {
+					"params": {
+						"fundsAdmin": "The new funds admin*"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"approve(address,address,uint256)": {
+					"details": "Function for the funds admin to give ERC20 allowance to other parties",
+					"params": {
+						"amount": "Allowance to approve*",
+						"recipient": "Allowance's recipient",
+						"token": "The address of the token to give allowance from"
+					}
+				},
+				"balanceOf(uint256,address)": {
+					"details": "Throws if the id does not point to a valid stream.",
+					"params": {
+						"streamId": "The id of the stream for which to query the balance.",
+						"who": "The address for which to query the balance."
+					}
+				},
+				"cancelStream(uint256)": {
+					"details": "Throws if the id does not point to a valid stream.  Throws if the caller is not the funds admin or the recipient of the stream.  Throws if there is a token transfer failure.",
+					"params": {
+						"streamId": "The id of the stream to cancel."
+					}
+				},
+				"createStream(address,uint256,address,uint256,uint256)": {
+					"details": "Throws if the recipient is the zero address, the contract itself or the caller.  Throws if the deposit is 0.  Throws if the start time is before `block.timestamp`.  Throws if the stop time is before the start time.  Throws if the duration calculation has a math error.  Throws if the deposit is smaller than the duration.  Throws if the deposit is not a multiple of the duration.  Throws if the rate calculation has a math error.  Throws if the next stream id calculation has a math error.  Throws if the contract is not allowed to transfer enough tokens.  Throws if there is a token transfer failure.",
+					"params": {
+						"deposit": "The amount of money to be streamed.",
+						"recipient": "The address towards which the money is streamed.",
+						"startTime": "The unix timestamp for when the stream starts.",
+						"stopTime": "The unix timestamp for when the stream stops.",
+						"tokenAddress": "The ERC20 token to use as streaming currency."
+					}
+				},
+				"deltaOf(uint256)": {
+					"details": "Throws if the id does not point to a valid stream.",
+					"params": {
+						"streamId": "The id of the stream for which to query the delta."
+					}
+				},
+				"getFundsAdmin()": {
+					"returns": {
+						"_0": "address The address of the funds admin*"
+					}
+				},
+				"getStream(uint256)": {
+					"details": "Throws if the id does not point to a valid stream.",
+					"params": {
+						"streamId": "The id of the stream to query."
+					}
+				},
+				"transfer(address,address,uint256)": {
+					"params": {
+						"amount": "Amount to transfer*",
+						"recipient": "Transfer's recipient",
+						"token": "The address of the token to transfer"
+					}
+				},
+				"withdrawFromStream(uint256,uint256)": {
+					"details": "Throws if the id does not point to a valid stream.  Throws if the caller is not the funds admin or the recipient of the stream.  Throws if the amount exceeds the available balance.  Throws if there is a token transfer failure.",
+					"params": {
+						"amount": "The amount of tokens to withdraw.",
+						"streamId": "The id of the stream to withdraw tokens from."
+					}
+				}
+			},
+			"title": "AaveEcosystemReserve v2",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"NewFundsAdmin(address)": {
+					"notice": "Emitted when the funds admin changes"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"ETH_MOCK_ADDRESS()": {
+					"notice": "Returns the mock ETH reference address"
+				},
+				"balanceOf(uint256,address)": {
+					"notice": "Returns the available funds for the given stream id and address.Returns the total funds allocated to `who` as uint256."
+				},
+				"cancelStream(uint256)": {
+					"notice": "Cancels the stream and transfers the tokens back on a pro rata basis.Returns bool true=success, otherwise false."
+				},
+				"createStream(address,uint256,address,uint256,uint256)": {
+					"notice": "Creates a new stream funded by this contracts itself and paid towards `recipient`.Returns the uint256 id of the newly created stream."
+				},
+				"deltaOf(uint256)": {
+					"notice": "Returns either the delta in seconds between `block.timestamp` and `startTime` or  between `stopTime` and `startTime, whichever is smaller. If `block.timestamp` is before  `startTime`, it returns 0.Returns the time delta in seconds."
+				},
+				"getFundsAdmin()": {
+					"notice": "Return the funds admin, only entity to be able to interact with this contract (controller of reserve)"
+				},
+				"getNextStreamId()": {
+					"notice": "Returns the next available stream idReturns the stream id."
+				},
+				"getStream(uint256)": {
+					"notice": "Returns the stream with all its properties.Returns the stream object."
+				},
+				"transfer(address,address,uint256)": {
+					"notice": "Function for the funds admin to transfer ERC20 tokens to other parties"
+				},
+				"withdrawFromStream(uint256,uint256)": {
+					"notice": "Withdraws from the contract to the recipient's account."
+				}
+			},
+			"notice": "Stores ERC20 tokens of an ecosystem reserve, adding streaming capabilities. Modification of Sablier https://github.com/sablierhq/sablier/blob/develop/packages/protocol/contracts/Sablier.sol Original can be found also deployed on https://etherscan.io/address/0xCD18eAa163733Da39c232722cBC4E8940b1D8888 Modifications: - Sablier \"pulls\" the funds from the creator of the stream at creation. In the Aave case, we already have the funds. - Anybody can create streams on Sablier. Here, only the funds admin (Aave governance via controller) can - Adapted codebase to Solidity 0.8.11, mainly removing SafeMath and CarefulMath to use native safe math - Same as with creation, on Sablier the `sender` and `recipient` can cancel a stream. Here, only fund admin and recipient",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/treasury/AaveEcosystemReserveV2.sol": "AaveEcosystemReserveV2"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0xf57d62241e553696a1324d225663ba2e1a51db0a51ca236d0c1b009d89b6284c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://d327db93b636790909aa137124f30a856ac1631cb79c476aa188f9627fda8d03",
+				"dweb:/ipfs/QmaxpmEoBFioeNYmpxJemyZ7aYF2nX1NKW1XDqREm7i6es"
+			]
+		},
+		"contracts/treasury/AaveEcosystemReserveV2.sol": {
+			"keccak256": "0xdb62e463416e2497a698a31308a3c5be31e4dad86cba6c6b11d10e7a5b411b32",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://ac2933cdd230eaf7759bc0c36682b8cae42baab62f6720c1674ba84a28837308",
+				"dweb:/ipfs/QmUeZ715sjJ1gy2Zod9maBMqE6Q1ZqupripaLVQ5Za5Zv1"
+			]
+		},
+		"contracts/treasury/AdminControlledEcosystemReserve.sol": {
+			"keccak256": "0x762e73291586d0dc792962ba6254fc61e6b645561da7b9a384860c7c9a4de12a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://568707fe0efabcfc64c421f13cc64bb98b70c6238d0e6a622691d9a7a2764391",
+				"dweb:/ipfs/QmPrkZnubi4YAzzXHJ5Bw7njDtCJnojAiiihQshKqWeat1"
+			]
+		},
+		"contracts/treasury/interfaces/IAdminControlledEcosystemReserve.sol": {
+			"keccak256": "0x98018afde54c4d8ffe2213f9b67dc91cec8d8a9a6962303c222e7fbcbf099583",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d914c234ae88695b09b855e56219d599400f53031d387812d5ce6c1a97620e4a",
+				"dweb:/ipfs/QmewaB3vTNLgDq1h4qQjqdi7f2NwD8CadS1aBjVNnoYQZD"
+			]
+		},
+		"contracts/treasury/interfaces/IStreamable.sol": {
+			"keccak256": "0x0efbc308047fda305fb717a4be706bb109c5bc3b5c8895c76730db425e0a3189",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7c05d70daceee1e470453ca7db02f048bf609c803b68d66d5346c675c69831ef",
+				"dweb:/ipfs/QmWd1dpTNyHcS7GsAEjGUSVxTxbD5Q2XoCuy1UzXrPVGWL"
+			]
+		},
+		"contracts/treasury/libs/Address.sol": {
+			"keccak256": "0xb2d70ed96d128c50245fe45acad4a21a8c7616d3ab0d7d81da6f6fddcba9336f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://028ec219854fc4c3c47d4099c7f71f21f2f2c1664b8c1f23afffb8121bc5a7c7",
+				"dweb:/ipfs/QmXwZjJhLWAFDVLv6PnMhFiWazRFfyeeix58d4NpgjZK2U"
+			]
+		},
+		"contracts/treasury/libs/ReentrancyGuard.sol": {
+			"keccak256": "0xb3fe85f81b73c576b4bcde7ad54f53d7f9c1b552d2c227581b343f1dad17f522",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://875557006dd1f7926cc8d7c925ff048fe3f1499b6a8bfb69850f000fb350fad8",
+				"dweb:/ipfs/QmUhkkVs3ATNnP4RpfSas9PizztHQUchCTyrB6QXLCLcjn"
+			]
+		},
+		"contracts/treasury/libs/SafeERC20.sol": {
+			"keccak256": "0x0ba690dc0a1acab430c16306271ca087920108d2a59197673157143881e24188",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6c45c3a123d36b71e74f9ed6d0e61b3b6d447c964c465717f4ee24718f5e6b18",
+				"dweb:/ipfs/QmabJP3vdSYJuoEQYMziJKWyawUFsszFnvq3Y2R9JD3gsX"
+			]
+		},
+		"contracts/treasury/libs/VersionedInitializable.sol": {
+			"keccak256": "0x2a309d06d4ecbca926f68445dd5aeea59d43cb4c46ee194efcf2f63cf3e4ea58",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://437357f51a0a5bf7ea60c3e9f3d9faa26785551b490394eb1a735115afae509f",
+				"dweb:/ipfs/QmcWtbYZKDELmoZiHMGrQ1K8en8BGstLioBR921JYGje5y"
+			]
+		}
+	},
+	"version": 1
+}

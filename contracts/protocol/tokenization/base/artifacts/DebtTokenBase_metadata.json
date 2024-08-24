@@ -1,0 +1,334 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "fromUser",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "toUser",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "BorrowAllowanceDelegated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DELEGATION_WITH_SIG_TYPEHASH",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "DOMAIN_SEPARATOR",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "EIP712_REVISION",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "delegatee",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approveDelegation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "fromUser",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "toUser",
+						"type": "address"
+					}
+				],
+				"name": "borrowAllowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "delegator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "delegatee",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "v",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "r",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "delegationWithSig",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "nonces",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave",
+			"events": {
+				"BorrowAllowanceDelegated(address,address,address,uint256)": {
+					"details": "Emitted on `approveDelegation` and `borrowAllowance",
+					"params": {
+						"amount": "The amount being delegated",
+						"asset": "The address of the delegated asset",
+						"fromUser": "The address of the delegator",
+						"toUser": "The address of the delegatee"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"DOMAIN_SEPARATOR()": {
+					"details": "Return cached value if chainId matches cache, otherwise recomputes separator",
+					"returns": {
+						"_0": "The domain separator of the token at current chain"
+					}
+				},
+				"approveDelegation(address,uint256)": {
+					"params": {
+						"amount": "The maximum amount being delegated.",
+						"delegatee": "The address receiving the delegated borrowing power"
+					}
+				},
+				"borrowAllowance(address,address)": {
+					"params": {
+						"fromUser": "The user to giving allowance",
+						"toUser": "The user to give allowance to"
+					},
+					"returns": {
+						"_0": "The current allowance of `toUser`"
+					}
+				},
+				"constructor": {
+					"details": "Constructor."
+				},
+				"delegationWithSig(address,address,uint256,uint256,uint8,bytes32,bytes32)": {
+					"params": {
+						"deadline": "The deadline timestamp, type(uint256).max for max deadline",
+						"delegatee": "The delegatee that can use the credit",
+						"delegator": "The delegator of the credit",
+						"r": "The R signature param",
+						"s": "The S signature param",
+						"v": "The V signature param",
+						"value": "The amount to be delegated"
+					}
+				},
+				"nonces(address)": {
+					"params": {
+						"owner": "The address for which the nonce is being returned"
+					},
+					"returns": {
+						"_0": "The nonce value for the input address`"
+					}
+				}
+			},
+			"title": "DebtTokenBase",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"DOMAIN_SEPARATOR()": {
+					"notice": "Get the domain separator for the token"
+				},
+				"approveDelegation(address,uint256)": {
+					"notice": "Delegates borrowing power to a user on the specific debt token. Delegation will still respect the liquidation constraints (even if delegated, a delegatee cannot force a delegator HF to go below 1)"
+				},
+				"borrowAllowance(address,address)": {
+					"notice": "Returns the borrow allowance of the user"
+				},
+				"delegationWithSig(address,address,uint256,uint256,uint8,bytes32,bytes32)": {
+					"notice": "Delegates borrowing power to a user on the specific debt token via ERC712 signature"
+				},
+				"nonces(address)": {
+					"notice": "Returns the nonce value for address specified as parameter"
+				}
+			},
+			"notice": "Base contract for different types of debt tokens, like StableDebtToken or VariableDebtToken",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/protocol/tokenization/base/DebtTokenBase.sol": "DebtTokenBase"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/dependencies/openzeppelin/contracts/Context.sol": {
+			"keccak256": "0x58e76abc9cac3909e67c990d0b1f781a845cd294c0fc91a5b3b000510e2043bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e6c0a518ec3bf9aed12a90aabed9ffa16c5a3ab29be91b7ee826644d1fbdf8df",
+				"dweb:/ipfs/QmeG7iQ5aoXaDhisunyAQmHk3bvrcSLk278H2VbhSCB2Qb"
+			]
+		},
+		"contracts/interfaces/ICreditDelegationToken.sol": {
+			"keccak256": "0xf4d01813335217aeeb6329790b0cee27a4d3bd6500d43d9336ab01940a48d955",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://9b51371dc1d385d5025abaef575a24102738bc1a5b4f6311ffc6a365258233cf",
+				"dweb:/ipfs/QmRWzaCmWLdHYTBD4mLEGWV7bunty75rcHLseKFPRTYPD1"
+			]
+		},
+		"contracts/protocol/libraries/aave-upgradeability/VersionedInitializable.sol": {
+			"keccak256": "0x5f85255cef8377443dddcd32b57a1693da484320829282f78e471cd106d7615c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://1cd759611a938fe9250d7ba819bbcce9b517b846c826f7e622db467500ba31ea",
+				"dweb:/ipfs/QmXuhheJQ1aDdRX65ZcEUyqAHSLDKk4RHFDEo7r2WHX1gt"
+			]
+		},
+		"contracts/protocol/libraries/helpers/Errors.sol": {
+			"keccak256": "0xb6227b2cd999d01882dcfa20f489bf7b95d7428120253da7833c3361d2c8865d",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://e41c6e7c7ce1e5454602a590b07235e58684f15eef8fb80deb3b1017cff52516",
+				"dweb:/ipfs/QmYkjQHEqKTTZA9WpoXhevUtugDnLqxDdatkmkFxbihT5Z"
+			]
+		},
+		"contracts/protocol/tokenization/base/DebtTokenBase.sol": {
+			"keccak256": "0xbaddaab0eb0c95232647274a07c2dd37569a70823988bbbb2f5f535cd30fc4e7",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://32dea69e8643ab97c57f9483d4b09cd7ba570fb87c457f99c37579e7ef53ee21",
+				"dweb:/ipfs/QmUB3GKnfejaP2sRJEQc3uru4DdeJoR6pmiBpkybisRZxX"
+			]
+		},
+		"contracts/protocol/tokenization/base/EIP712Base.sol": {
+			"keccak256": "0x1d367909141cf1c6f103d69837ebd94013cd0f34a206cdb7692d4da3cdce60a3",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://13338a975543726810b25a510971a5d6c033f8a78703443c139e6b0d6d2c70a8",
+				"dweb:/ipfs/QmREx1MXHyDh3jE27AN7uCTRzCEDGGSNMgfWPWnWLVU9SJ"
+			]
+		}
+	},
+	"version": 1
+}

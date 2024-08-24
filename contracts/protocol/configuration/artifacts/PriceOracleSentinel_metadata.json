@@ -1,0 +1,313 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IPoolAddressesProvider",
+						"name": "provider",
+						"type": "address"
+					},
+					{
+						"internalType": "contract ISequencerOracle",
+						"name": "oracle",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "gracePeriod",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newGracePeriod",
+						"type": "uint256"
+					}
+				],
+				"name": "GracePeriodUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newSequencerOracle",
+						"type": "address"
+					}
+				],
+				"name": "SequencerOracleUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ADDRESSES_PROVIDER",
+				"outputs": [
+					{
+						"internalType": "contract IPoolAddressesProvider",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getGracePeriod",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getSequencerOracle",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isBorrowAllowed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isLiquidationAllowed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newGracePeriod",
+						"type": "uint256"
+					}
+				],
+				"name": "setGracePeriod",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newSequencerOracle",
+						"type": "address"
+					}
+				],
+				"name": "setSequencerOracle",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave",
+			"details": "Once the PriceOracle gets up after an outage/downtime, users can make their positions healthy during a grace  period. So the PriceOracle is considered completely up once its up and the grace period passed.",
+			"events": {
+				"GracePeriodUpdated(uint256)": {
+					"details": "Emitted after the grace period is updated",
+					"params": {
+						"newGracePeriod": "The new grace period value"
+					}
+				},
+				"SequencerOracleUpdated(address)": {
+					"details": "Emitted after the sequencer oracle is updated",
+					"params": {
+						"newSequencerOracle": "The new sequencer oracle"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"details": "Constructor",
+					"params": {
+						"gracePeriod": "The duration of the grace period in seconds",
+						"oracle": "The address of the SequencerOracle",
+						"provider": "The address of the PoolAddressesProvider"
+					}
+				},
+				"getGracePeriod()": {
+					"returns": {
+						"_0": "The duration of the grace period"
+					}
+				},
+				"getSequencerOracle()": {
+					"returns": {
+						"_0": "The address of the sequencer oracle contract"
+					}
+				},
+				"isBorrowAllowed()": {
+					"details": "Operation not allowed when PriceOracle is down or grace period not passed.",
+					"returns": {
+						"_0": "True if the `borrow` operation is allowed, false otherwise."
+					}
+				},
+				"isLiquidationAllowed()": {
+					"details": "Operation not allowed when PriceOracle is down or grace period not passed.",
+					"returns": {
+						"_0": "True if the `liquidation` operation is allowed, false otherwise."
+					}
+				},
+				"setGracePeriod(uint256)": {
+					"params": {
+						"newGracePeriod": "The value of the new grace period duration"
+					}
+				},
+				"setSequencerOracle(address)": {
+					"params": {
+						"newSequencerOracle": "The address of the new Sequencer Oracle to use"
+					}
+				}
+			},
+			"stateVariables": {
+				"ADDRESSES_PROVIDER": {
+					"return": "The address of the PoolAddressesProvider contract",
+					"returns": {
+						"_0": "The address of the PoolAddressesProvider contract"
+					}
+				}
+			},
+			"title": "PriceOracleSentinel",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"ADDRESSES_PROVIDER()": {
+					"notice": "Returns the PoolAddressesProvider"
+				},
+				"getGracePeriod()": {
+					"notice": "Returns the grace period"
+				},
+				"getSequencerOracle()": {
+					"notice": "Returns the SequencerOracle"
+				},
+				"isBorrowAllowed()": {
+					"notice": "Returns true if the `borrow` operation is allowed."
+				},
+				"isLiquidationAllowed()": {
+					"notice": "Returns true if the `liquidation` operation is allowed."
+				},
+				"setGracePeriod(uint256)": {
+					"notice": "Updates the duration of the grace period"
+				},
+				"setSequencerOracle(address)": {
+					"notice": "Updates the address of the sequencer oracle"
+				}
+			},
+			"notice": "It validates if operations are allowed depending on the PriceOracle health.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/protocol/configuration/PriceOracleSentinel.sol": "PriceOracleSentinel"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IACLManager.sol": {
+			"keccak256": "0x518142961e1f7c74c9709585287a5dd698874a6db42f7155c2e6564e313888bb",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://115f1920f839c3cbf909631b543f2af8bbcc9aa34b2c7a333bb552740ea8fd7f",
+				"dweb:/ipfs/QmNsqxwBjhecXtrmALP8Cjpsf4PvyCn28EVNEW6vgzvhpN"
+			]
+		},
+		"contracts/interfaces/IPoolAddressesProvider.sol": {
+			"keccak256": "0xf37b9fdb389d45783acfc16664c06f28af953d4a409d1059bdf10b917d41fd4a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb3c42a324ea0adf0095b1e3ea05df7edd70816cfd472e79a29a4fd5b196fa7b",
+				"dweb:/ipfs/QmcSYcH5NZc96EHqAp7sY5Gxvo1229gLnihyBfqme5EdGj"
+			]
+		},
+		"contracts/interfaces/IPriceOracleSentinel.sol": {
+			"keccak256": "0x8232715de9d19af290905965b9e5eb3acde6eaa869756425523ded6271ac5148",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://b9b2f7ed829e3abffe838e664cc622b6016213c8dbb854d828b8a558e2db2be1",
+				"dweb:/ipfs/QmPA1bVvp4EQ53xmU1gFHU9EmLsxropwedtHhUSCjuxFjt"
+			]
+		},
+		"contracts/interfaces/ISequencerOracle.sol": {
+			"keccak256": "0xcf32a060de83dc40fb32b3ce26d988723f811045fff4345c9356f2f8dc440387",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://f7cba24d05cacb259bc9f720435b3adf43e53f50bb4901e4318a6dbd413f755d",
+				"dweb:/ipfs/QmYyNhhDfUzuVB68Lxe6fGsmagE8K399QAzc8DqB5vqbMe"
+			]
+		},
+		"contracts/protocol/configuration/PriceOracleSentinel.sol": {
+			"keccak256": "0x24bb463aa72051f2d65837de09341bc67fd601e2cc087f32e3226f58e680735b",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://b0562c28928f5d395e83601cd7d3ad04cef8751bc9cb3492550d784d0c74838e",
+				"dweb:/ipfs/QmQ3G7dQxUshUV9KzC3x1qCZ78jxV8of9nFuR9ioPc62U8"
+			]
+		},
+		"contracts/protocol/libraries/helpers/Errors.sol": {
+			"keccak256": "0xb6227b2cd999d01882dcfa20f489bf7b95d7428120253da7833c3361d2c8865d",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://e41c6e7c7ce1e5454602a590b07235e58684f15eef8fb80deb3b1017cff52516",
+				"dweb:/ipfs/QmYkjQHEqKTTZA9WpoXhevUtugDnLqxDdatkmkFxbihT5Z"
+			]
+		}
+	},
+	"version": 1
+}

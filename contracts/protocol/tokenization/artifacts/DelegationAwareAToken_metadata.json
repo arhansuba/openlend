@@ -1,0 +1,1463 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IPool",
+						"name": "pool",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "BalanceTransfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "balanceIncrease",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "Burn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "delegatee",
+						"type": "address"
+					}
+				],
+				"name": "DelegateUnderlyingTo",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "underlyingAsset",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "pool",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "treasury",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "incentivesController",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "aTokenDecimals",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "aTokenName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "aTokenSymbol",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "params",
+						"type": "bytes"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "balanceIncrease",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "Mint",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ATOKEN_REVISION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "DOMAIN_SEPARATOR",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "EIP712_REVISION",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PERMIT_TYPEHASH",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "POOL",
+				"outputs": [
+					{
+						"internalType": "contract IPool",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "RESERVE_TREASURY_ADDRESS",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "UNDERLYING_ASSET_ADDRESS",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "receiverOfUnderlying",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "subtractedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "decreaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "delegatee",
+						"type": "address"
+					}
+				],
+				"name": "delegateUnderlyingTo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getIncentivesController",
+				"outputs": [
+					{
+						"internalType": "contract IAaveIncentivesController",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getPreviousIndex",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getScaledUserBalanceAndSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "handleRepayment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "addedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "increaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IPool",
+						"name": "initializingPool",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "treasury",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "underlyingAsset",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IAaveIncentivesController",
+						"name": "incentivesController",
+						"type": "address"
+					},
+					{
+						"internalType": "uint8",
+						"name": "aTokenDecimals",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "aTokenName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "aTokenSymbol",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes",
+						"name": "params",
+						"type": "bytes"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "onBehalfOf",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "mintToTreasury",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "nonces",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "v",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "r",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "permit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "rescueTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "scaledBalanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "scaledTotalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IAaveIncentivesController",
+						"name": "controller",
+						"type": "address"
+					}
+				],
+				"name": "setIncentivesController",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "transferOnLiquidation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferUnderlyingTo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave",
+			"details": "The underlying asset needs to be compatible with the COMP delegation interface",
+			"events": {
+				"Approval(address,address,uint256)": {
+					"details": "Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve}. `value` is the new allowance."
+				},
+				"BalanceTransfer(address,address,uint256,uint256)": {
+					"details": "Emitted during the transfer action",
+					"params": {
+						"from": "The user whose tokens are being transferred",
+						"index": "The next liquidity index of the reserve",
+						"to": "The recipient",
+						"value": "The scaled amount being transferred"
+					}
+				},
+				"Burn(address,address,uint256,uint256,uint256)": {
+					"details": "Emitted after the burn actionIf the burn function does not involve a transfer of the underlying asset, the target defaults to zero address",
+					"params": {
+						"balanceIncrease": "The increase in scaled-up balance since the last action of 'from'",
+						"from": "The address from which the tokens will be burned",
+						"index": "The next liquidity index of the reserve",
+						"target": "The address that will receive the underlying, if any",
+						"value": "The scaled-up amount being burned (user entered amount - balance increase from interest)"
+					}
+				},
+				"DelegateUnderlyingTo(address)": {
+					"details": "Emitted when underlying voting power is delegated",
+					"params": {
+						"delegatee": "The address of the delegatee"
+					}
+				},
+				"Initialized(address,address,address,address,uint8,string,string,bytes)": {
+					"details": "Emitted when an aToken is initialized",
+					"params": {
+						"aTokenDecimals": "The decimals of the underlying",
+						"aTokenName": "The name of the aToken",
+						"aTokenSymbol": "The symbol of the aToken",
+						"incentivesController": "The address of the incentives controller for this aToken",
+						"params": "A set of encoded parameters for additional initialization",
+						"pool": "The address of the associated pool",
+						"treasury": "The address of the treasury",
+						"underlyingAsset": "The address of the underlying asset"
+					}
+				},
+				"Mint(address,address,uint256,uint256,uint256)": {
+					"details": "Emitted after the mint action",
+					"params": {
+						"balanceIncrease": "The increase in scaled-up balance since the last action of 'onBehalfOf'",
+						"caller": "The address performing the mint",
+						"index": "The next liquidity index of the reserve",
+						"onBehalfOf": "The address of the user that will receive the minted tokens",
+						"value": "The scaled-up amount being minted (based on user entered amount and balance increase from interest)"
+					}
+				},
+				"Transfer(address,address,uint256)": {
+					"details": "Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero."
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"DOMAIN_SEPARATOR()": {
+					"details": "Overrides the base function to fully implement IATokensee `EIP712Base.DOMAIN_SEPARATOR()` for more detailed documentation"
+				},
+				"RESERVE_TREASURY_ADDRESS()": {
+					"returns": {
+						"_0": "Address of the Aave treasury"
+					}
+				},
+				"UNDERLYING_ASSET_ADDRESS()": {
+					"returns": {
+						"_0": "The address of the underlying asset"
+					}
+				},
+				"allowance(address,address)": {
+					"details": "Returns the remaining number of tokens that `spender` will be allowed to spend on behalf of `owner` through {transferFrom}. This is zero by default. This value changes when {approve} or {transferFrom} are called."
+				},
+				"approve(address,uint256)": {
+					"details": "Sets `amount` as the allowance of `spender` over the caller's tokens. Returns a boolean value indicating whether the operation succeeded. IMPORTANT: Beware that changing an allowance with this method brings the risk that someone may use both the old and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729 Emits an {Approval} event."
+				},
+				"balanceOf(address)": {
+					"details": "Returns the amount of tokens owned by `account`."
+				},
+				"burn(address,address,uint256,uint256)": {
+					"details": "In some instances, the mint event could be emitted from a burn transaction if the amount to burn is less than the interest that the user accrued",
+					"params": {
+						"amount": "The amount being burned",
+						"from": "The address from which the aTokens will be burned",
+						"index": "The next liquidity index of the reserve",
+						"receiverOfUnderlying": "The address that will receive the underlying"
+					}
+				},
+				"constructor": {
+					"details": "Constructor.",
+					"params": {
+						"pool": "The address of the Pool contract"
+					}
+				},
+				"decreaseAllowance(address,uint256)": {
+					"params": {
+						"spender": "The user allowed to spend on behalf of _msgSender()",
+						"subtractedValue": "The amount being subtracted to the allowance"
+					},
+					"returns": {
+						"_0": "`true`"
+					}
+				},
+				"delegateUnderlyingTo(address)": {
+					"params": {
+						"delegatee": "The address that will receive the delegation"
+					}
+				},
+				"getIncentivesController()": {
+					"returns": {
+						"_0": "The address of the Incentives Controller"
+					}
+				},
+				"getPreviousIndex(address)": {
+					"params": {
+						"user": "The address of the user"
+					},
+					"returns": {
+						"_0": "The last index interest was accrued to the user's balance, expressed in ray"
+					}
+				},
+				"getScaledUserBalanceAndSupply(address)": {
+					"params": {
+						"user": "The address of the user"
+					},
+					"returns": {
+						"_0": "The scaled balance of the user",
+						"_1": "The scaled total supply"
+					}
+				},
+				"handleRepayment(address,address,uint256)": {
+					"details": "The default implementation is empty as with standard ERC20 tokens, nothing needs to be done after the transfer is concluded. However in the future there may be aTokens that allow for example to stake the underlying to receive LM rewards. In that case, `handleRepayment()` would perform the staking of the underlying asset.",
+					"params": {
+						"amount": "The amount getting repaid",
+						"onBehalfOf": "The address of the user who will get his debt reduced/removed",
+						"user": "The user executing the repayment"
+					}
+				},
+				"increaseAllowance(address,uint256)": {
+					"params": {
+						"addedValue": "The amount being added to the allowance",
+						"spender": "The user allowed to spend on behalf of _msgSender()"
+					},
+					"returns": {
+						"_0": "`true`"
+					}
+				},
+				"initialize(address,address,address,address,uint8,string,string,bytes)": {
+					"params": {
+						"aTokenDecimals": "The decimals of the aToken, same as the underlying asset's",
+						"aTokenName": "The name of the aToken",
+						"aTokenSymbol": "The symbol of the aToken",
+						"incentivesController": "The smart contract managing potential incentives distribution",
+						"params": "A set of encoded parameters for additional initialization",
+						"pool": "The pool contract that is initializing this contract",
+						"treasury": "The address of the Aave treasury, receiving the fees on this aToken",
+						"underlyingAsset": "The address of the underlying asset of this aToken (E.g. WETH for aWETH)"
+					}
+				},
+				"mint(address,address,uint256,uint256)": {
+					"params": {
+						"amount": "The amount of tokens getting minted",
+						"caller": "The address performing the mint",
+						"index": "The next liquidity index of the reserve",
+						"onBehalfOf": "The address of the user that will receive the minted aTokens"
+					},
+					"returns": {
+						"_0": "`true` if the the previous balance of the user was 0"
+					}
+				},
+				"mintToTreasury(uint256,uint256)": {
+					"params": {
+						"amount": "The amount of tokens getting minted",
+						"index": "The next liquidity index of the reserve"
+					}
+				},
+				"nonces(address)": {
+					"details": "Overrides the base function to fully implement IATokensee `EIP712Base.nonces()` for more detailed documentation"
+				},
+				"permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": {
+					"details": "implements the permit function as for https://github.com/ethereum/EIPs/blob/8a34d644aacf0f9f8f00815307fd7dd5da07655f/EIPS/eip-2612.md",
+					"params": {
+						"deadline": "The deadline timestamp, type(uint256).max for max deadline",
+						"owner": "The owner of the funds",
+						"r": "Signature param",
+						"s": "Signature param",
+						"spender": "The spender",
+						"v": "Signature param",
+						"value": "The amount"
+					}
+				},
+				"rescueTokens(address,address,uint256)": {
+					"params": {
+						"amount": "The amount of token to transfer",
+						"to": "The address of the recipient",
+						"token": "The address of the token"
+					}
+				},
+				"scaledBalanceOf(address)": {
+					"details": "The scaled balance is the sum of all the updated stored balance divided by the reserve's liquidity index at the moment of the update",
+					"params": {
+						"user": "The user whose balance is calculated"
+					},
+					"returns": {
+						"_0": "The scaled balance of the user"
+					}
+				},
+				"scaledTotalSupply()": {
+					"returns": {
+						"_0": "The scaled total supply"
+					}
+				},
+				"setIncentivesController(address)": {
+					"params": {
+						"controller": "the new Incentives controller"
+					}
+				},
+				"totalSupply()": {
+					"details": "Returns the amount of tokens in existence."
+				},
+				"transfer(address,uint256)": {
+					"details": "Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
+				},
+				"transferFrom(address,address,uint256)": {
+					"details": "Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
+				},
+				"transferOnLiquidation(address,address,uint256)": {
+					"params": {
+						"from": "The address getting liquidated, current owner of the aTokens",
+						"to": "The recipient",
+						"value": "The amount of tokens getting transferred"
+					}
+				},
+				"transferUnderlyingTo(address,uint256)": {
+					"details": "Used by the Pool to transfer assets in borrow(), withdraw() and flashLoan()",
+					"params": {
+						"amount": "The amount getting transferred",
+						"target": "The recipient of the underlying"
+					}
+				}
+			},
+			"title": "DelegationAwareAToken",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"RESERVE_TREASURY_ADDRESS()": {
+					"notice": "Returns the address of the Aave treasury, receiving the fees on this aToken."
+				},
+				"UNDERLYING_ASSET_ADDRESS()": {
+					"notice": "Returns the address of the underlying asset of this aToken (E.g. WETH for aWETH)"
+				},
+				"burn(address,address,uint256,uint256)": {
+					"notice": "Burns aTokens from `user` and sends the equivalent amount of underlying to `receiverOfUnderlying`"
+				},
+				"decreaseAllowance(address,uint256)": {
+					"notice": "Decreases the allowance of spender to spend _msgSender() tokens"
+				},
+				"delegateUnderlyingTo(address)": {
+					"notice": "Delegates voting power of the underlying asset to a `delegatee` address"
+				},
+				"getIncentivesController()": {
+					"notice": "Returns the address of the Incentives Controller contract"
+				},
+				"getPreviousIndex(address)": {
+					"notice": "Returns last index interest was accrued to the user's balance"
+				},
+				"getScaledUserBalanceAndSupply(address)": {
+					"notice": "Returns the scaled balance of the user and the scaled total supply."
+				},
+				"handleRepayment(address,address,uint256)": {
+					"notice": "Handles the underlying received by the aToken after the transfer has been completed."
+				},
+				"increaseAllowance(address,uint256)": {
+					"notice": "Increases the allowance of spender to spend _msgSender() tokens"
+				},
+				"initialize(address,address,address,address,uint8,string,string,bytes)": {
+					"notice": "Initializes the aToken"
+				},
+				"mint(address,address,uint256,uint256)": {
+					"notice": "Mints `amount` aTokens to `user`"
+				},
+				"mintToTreasury(uint256,uint256)": {
+					"notice": "Mints aTokens to the reserve treasury"
+				},
+				"permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": {
+					"notice": "Allow passing a signed message to approve spending"
+				},
+				"rescueTokens(address,address,uint256)": {
+					"notice": "Rescue and transfer tokens locked in this contract"
+				},
+				"scaledBalanceOf(address)": {
+					"notice": "Returns the scaled balance of the user."
+				},
+				"scaledTotalSupply()": {
+					"notice": "Returns the scaled total supply of the scaled balance token. Represents sum(debt/index)"
+				},
+				"setIncentivesController(address)": {
+					"notice": "Sets a new Incentives Controller"
+				},
+				"transferOnLiquidation(address,address,uint256)": {
+					"notice": "Transfers aTokens in the event of a borrow being liquidated, in case the liquidators reclaims the aToken"
+				},
+				"transferUnderlyingTo(address,uint256)": {
+					"notice": "Transfers the underlying asset to `target`."
+				}
+			},
+			"notice": "AToken enabled to delegate voting power of the underlying asset to a different address",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/protocol/tokenization/DelegationAwareAToken.sol": "DelegationAwareAToken"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/dependencies/gnosis/contracts/GPv2SafeERC20.sol": {
+			"keccak256": "0xd47a42766ec7a2d6413451a0b6fdb2feabacb0fe38f1b0a6bdb1b968d650266a",
+			"license": "LGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://5fd3387511aa51681ee7b7c99a6d93c1fe3a6bdfe0bf818c7f4efcdc8894f325",
+				"dweb:/ipfs/QmQqB8uNCqL7Q8BfWz2GMXKDMmMZnakgG54Zfb1fDiRogA"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/Context.sol": {
+			"keccak256": "0x58e76abc9cac3909e67c990d0b1f781a845cd294c0fc91a5b3b000510e2043bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e6c0a518ec3bf9aed12a90aabed9ffa16c5a3ab29be91b7ee826644d1fbdf8df",
+				"dweb:/ipfs/QmeG7iQ5aoXaDhisunyAQmHk3bvrcSLk278H2VbhSCB2Qb"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/IERC20.sol": {
+			"keccak256": "0x07fe55e38757b195c884a8ede60deb8a1f6a85cc607e4e112a8c0004a9ebd448",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://dac71166c7a8cd1eef36ef868a41fbe8227c0de4fad7052b28657e4176af741f",
+				"dweb:/ipfs/QmSPRAVhBexaW12JXoXoz94apX25fSqxzgS2a1AYJPKamv"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol": {
+			"keccak256": "0x8fa3eef49754f897adaf2d2b578e494ce342992e255283f0327d049573f3cfb4",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://812381e07cfe547bf5a35a7eca8893c3e9fea8afb250f786c4e285e760eff36c",
+				"dweb:/ipfs/QmbnTHFZuU4wPbYzbLMcKxp8D6Qr33CVbcN3CJE9H4RUGs"
+			]
+		},
+		"contracts/dependencies/openzeppelin/contracts/SafeCast.sol": {
+			"keccak256": "0x9dc85595ff727e421497d6507db33360a47adf75fb17eee51680c4e60e4b0447",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d9d36860ed2d82fad841166231e24a2a67f7c82177b91bc8c75e36f801f527bb",
+				"dweb:/ipfs/QmSZhSNiR3kp5p8Eix4tMdw8sVQkGQJan7PtBhpCSLryex"
+			]
+		},
+		"contracts/interfaces/IACLManager.sol": {
+			"keccak256": "0x518142961e1f7c74c9709585287a5dd698874a6db42f7155c2e6564e313888bb",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://115f1920f839c3cbf909631b543f2af8bbcc9aa34b2c7a333bb552740ea8fd7f",
+				"dweb:/ipfs/QmNsqxwBjhecXtrmALP8Cjpsf4PvyCn28EVNEW6vgzvhpN"
+			]
+		},
+		"contracts/interfaces/IAToken.sol": {
+			"keccak256": "0xbe0399dbab8e6072127b263307c4f398cd25cce65a3dae03770d9bac79f5d09d",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://8a5f1d672643a63640ff904b7ba3a538ffc2a8cf636b1f78c0e188755bc039ea",
+				"dweb:/ipfs/QmUNdweZRiYYjTZVYYZouY96iJLUezthQLoA7Q4GgcedPq"
+			]
+		},
+		"contracts/interfaces/IAaveIncentivesController.sol": {
+			"keccak256": "0x1fa5b0b5e06c28c3e0e5c4052bd4448abb905cdfd2496a347d539093c5337ebf",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://561f0f9f057e8f800ed5730ff290363a343811ebab34511db727d2b91352ec78",
+				"dweb:/ipfs/QmYyhpvB5MDogyyUgy7ndrqkHQFtF5q5ZWtvranB6Tqc2q"
+			]
+		},
+		"contracts/interfaces/IDelegationToken.sol": {
+			"keccak256": "0x268609f16f2b1628d566d8d994c66bab2a150d1ec258cb7fde4532af0bc93bac",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://17c9baf284a7c0d57984306f9f77d3d54712caa78329f276f3c4c3481417e222",
+				"dweb:/ipfs/QmPExRcxbaEzqAvDZdDukvKCPxKJaBgQaoiUNM4oj77Cj1"
+			]
+		},
+		"contracts/interfaces/IInitializableAToken.sol": {
+			"keccak256": "0xe46893b672fc9f2132c418019758400890fef467deaac34e008801a56f52bde2",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://38c80009bb548e75e1be0cb20227bbc5660edd3a2910c5ac4beec8954b3685c9",
+				"dweb:/ipfs/QmPb6cw49mpAgm5Wg1TYsoUoo6ZPSW33U5TUYuCuawmVPm"
+			]
+		},
+		"contracts/interfaces/IPool.sol": {
+			"keccak256": "0x91fc8cafd9f6fda5046620662d57c5ab5f724375be08903114576216a4980629",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://87c472da79a61750b3cd010532de6092c6be145591f27ca5436850e9985cf3ae",
+				"dweb:/ipfs/QmSVysBKZUepgucokF4Av7i3PJQSj2RSpXKKfYaAcYkR6d"
+			]
+		},
+		"contracts/interfaces/IPoolAddressesProvider.sol": {
+			"keccak256": "0xf37b9fdb389d45783acfc16664c06f28af953d4a409d1059bdf10b917d41fd4a",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://bb3c42a324ea0adf0095b1e3ea05df7edd70816cfd472e79a29a4fd5b196fa7b",
+				"dweb:/ipfs/QmcSYcH5NZc96EHqAp7sY5Gxvo1229gLnihyBfqme5EdGj"
+			]
+		},
+		"contracts/interfaces/IScaledBalanceToken.sol": {
+			"keccak256": "0xf811b6f5f28cb114bf0157f5c29e4f3b6916cd07a2d199e41a6e095bf10e9274",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://dfd126d6e02ccce04f58919686589c05eccf242d5bf4c270a612e7c46dc645c1",
+				"dweb:/ipfs/QmTSk6ojkAxRPVwUBKMWhtFAaJS1jLt48sK8dySxXFNxJW"
+			]
+		},
+		"contracts/protocol/libraries/aave-upgradeability/VersionedInitializable.sol": {
+			"keccak256": "0x5f85255cef8377443dddcd32b57a1693da484320829282f78e471cd106d7615c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://1cd759611a938fe9250d7ba819bbcce9b517b846c826f7e622db467500ba31ea",
+				"dweb:/ipfs/QmXuhheJQ1aDdRX65ZcEUyqAHSLDKk4RHFDEo7r2WHX1gt"
+			]
+		},
+		"contracts/protocol/libraries/helpers/Errors.sol": {
+			"keccak256": "0xb6227b2cd999d01882dcfa20f489bf7b95d7428120253da7833c3361d2c8865d",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://e41c6e7c7ce1e5454602a590b07235e58684f15eef8fb80deb3b1017cff52516",
+				"dweb:/ipfs/QmYkjQHEqKTTZA9WpoXhevUtugDnLqxDdatkmkFxbihT5Z"
+			]
+		},
+		"contracts/protocol/libraries/math/WadRayMath.sol": {
+			"keccak256": "0x1fefec0fa31e0b2960c90dd1a637b69e5748fee962d3b5e6f2f6b0b5965a67b1",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://b1e926d9b5a4bc735ab024f78bdd25138e209977d28a49587f496cabfae077e4",
+				"dweb:/ipfs/QmUEYMevf8L7dcFF6CrLc5YKDvDVHdv5fwnXPHiRwbQEBX"
+			]
+		},
+		"contracts/protocol/libraries/types/DataTypes.sol": {
+			"keccak256": "0xf484b9e835d41d75d2ad32ea241e1cc859f278df49a8c4ceb2c0299036e577be",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://eafa12cff7ec168fd0e868ffee3931cc128c57bab003efbdb30e67e73d477fe3",
+				"dweb:/ipfs/QmU6nessQ7F1JLRbeYzZzgkh4E5mRdVh3YqLNN5nxGuUvb"
+			]
+		},
+		"contracts/protocol/tokenization/AToken.sol": {
+			"keccak256": "0xa0a9a038e86ca0a9f1fa34d2c872c0c9d477ab363c515fbb4c4baa9ea6e9268b",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://a2dc313d224d60b2f83f514df984dfca68b8f19b92526fbb254e277e143f7bfe",
+				"dweb:/ipfs/Qmb6w7ma4vc3V4NE8NFVDDq5NJDsKLYvRQ49HP4ZzrGRYi"
+			]
+		},
+		"contracts/protocol/tokenization/DelegationAwareAToken.sol": {
+			"keccak256": "0x7f816b30fdca275f122ea4f4897226e6ddaf11348b1a2ac1afdbbea8857d854b",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://f9ef8dafa897bb25a37815ca951f5527c4f5f3cac1628b421b7ddf183f080695",
+				"dweb:/ipfs/QmTvwCVqkqMfpQ1QCnpnsvKTJt8U5iaP4RQqkQt3f8FUPP"
+			]
+		},
+		"contracts/protocol/tokenization/base/EIP712Base.sol": {
+			"keccak256": "0x1d367909141cf1c6f103d69837ebd94013cd0f34a206cdb7692d4da3cdce60a3",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://13338a975543726810b25a510971a5d6c033f8a78703443c139e6b0d6d2c70a8",
+				"dweb:/ipfs/QmREx1MXHyDh3jE27AN7uCTRzCEDGGSNMgfWPWnWLVU9SJ"
+			]
+		},
+		"contracts/protocol/tokenization/base/IncentivizedERC20.sol": {
+			"keccak256": "0x7301e97330aea6314ac52ee547774c0c6c2fbf28f79c3e6163a18551f57c4104",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://00a3071caef876afbd47803f55c150e8c194d36925d79c904a2d87b453c44014",
+				"dweb:/ipfs/QmXnZ5Q54BAJxR3AePaaXzJ5sxh251ubAk3YSgqiT71sDH"
+			]
+		},
+		"contracts/protocol/tokenization/base/MintableIncentivizedERC20.sol": {
+			"keccak256": "0xb4e738934ba091f565d7e121bd430234673e50e64928aab8586a5cc87194991c",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://cffc3dded348e4d85b475bd7597dda20ea097bd3cdc85563d23c36b0d1741137",
+				"dweb:/ipfs/QmZUxH361ZdvDY9RMEc3Cs5iR41o5ianQU6f39AtnqKuoR"
+			]
+		},
+		"contracts/protocol/tokenization/base/ScaledBalanceTokenBase.sol": {
+			"keccak256": "0xac257c1adc7fa5cfb9a2705f5bb9c9f0a4cf11ef63fd9e9750081f67d1abca55",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://de8f7ec472472321b1471db524e08b3440c548613b00e241591c1d439dfcef77",
+				"dweb:/ipfs/QmWNRxMWaV7B1JRhu6zNdAshyKWUEjGth1SGANoax3tShi"
+			]
+		}
+	},
+	"version": 1
+}
