@@ -1,0 +1,19 @@
+.supply{
+    width: 50%;
+}
+
+@media(max-width:1200px){
+    .supply{
+        width: 100%;
+    }
+}
+
+.borrow{
+    width: 50%;
+}
+
+@media(max-width:1200px){
+    .borrow{
+        width: 100%;
+    }
+}

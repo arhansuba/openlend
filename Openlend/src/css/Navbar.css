@@ -1,0 +1,24 @@
+.navbar{
+    height: 50px;
+    background-color: #2B2D3C;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 100;
+    border-bottom: 1px solid rgb(107, 106, 106);
+    padding: 0px 15px;
+}
+
+.navBtn{
+    background-color: #383D51;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.navBtn:hover{
+    cursor: pointer;
+    background-color: #2B2D3C;
+}

@@ -1,0 +1,58 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Global CSS goes here.... */
+
+.global_upper_container{
+  height: 320px;
+  width: 100%;
+  position: relative;
+  background-color: #2B2D3C;
+  padding: 10px;
+}
+
+.global_crypto_container{
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px grey;
+  padding: 15px;
+  margin: 10px 5px;
+  z-index: 10;
+}
+
+.global_collapse_btn:hover{
+  cursor: pointer;
+}
+
+.global_sticky_marks{
+  font-size: 12px;
+}
+
+.global_drop_listitem:hover{
+  cursor: pointer;
+  background-color: rgb(211, 211, 211);
+}
+
+.footer{
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+}

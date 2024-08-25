@@ -1,0 +1,16 @@
+.mobile_nav{
+    height: 100%;
+    width: 100vw;
+    background-color: #2B2D3C;
+    top: -100%;
+    left: 0%;
+    position: fixed;
+    z-index: 90;
+    transition: 0.5s ease-in-out;
+    margin: 0px;
+    padding: 10px;
+}
+
+.active{
+    top: 50px;
+}
